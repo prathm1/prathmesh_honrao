@@ -6,50 +6,92 @@
 <title>Prathmesh Honrao</title>
 <meta name="description" content="Engineering, AI & Data · Mainframe Modernisation. Modernization & cloud strategy, data migration, mainframe systems.">
 <link rel="canonical" href="https://prathm1.github.io/prathmesh_honrao/">
+
+<!-- Bookerly-like type: Literata (free) + Georgia fallback -->
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;500;700&display=swap" rel="stylesheet">
+
 <style>
-  /* ===== karpathy.ai-inspired minimalism ===== */
+  /* ===== Kindle-like reading palette & type ===== */
   :root{
-    --bg:#fff; --fg:#111; --muted:#555; --link:#0645ad; --max:760px;
-    --rule:#eaeaea; --accent:#0f766e;
+    --paper:#FFFDF6;   /* warm white like Kindle’s page */
+    --bg:#F5F3EA;      /* very light canvas behind the page */
+    --ink:#1A1A1A;     /* reading text color */
+    --muted:#646464;   /* secondary text */
+    --link:#0645ad;    /* classic web link blue */
+    --rule:#E7E3D9;    /* hairline rules */
+    --max:780px;       /* readable column width */
+    --accent:#0f766e;  /* generic accent (unused for bullets) */
   }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0b0b0b; --fg:#efefef; --muted:#b7b7b7; --link:#8ab4f8; --rule:#222; }
+
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);}
+  body{
+    font:17px/1.7 "Literata", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  html,body{margin:0;background:var(--bg);color:var(--fg);}
-  body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
-  .wrap{max-width:var(--max);padding:40px 20px;margin:0 auto;}
-  header h1{font-size:34px;margin:0 0 6px 0;line-height:1.2}
-  header .tag{color:var(--muted);margin:0 0 10px 0}
-  nav a{margin-right:14px;text-decoration:none;color:var(--link);font-weight:600}
-  nav a:hover{text-decoration:underline}
-  hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
-  h2{font-size:20px;margin:24px 0 10px 0}
-  a{color:var(--link)}
-  .photo{float:right;width:108px;height:108px;border-radius:100%;overflow:hidden;margin-left:16px;border:1px solid var(--rule)}
-  .photo img{width:100%;height:100%;object-fit:cover}
-  /* chips */
-  .chips{margin-top:8px}
-  .chip{display:inline-block;border:1px solid var(--rule);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px;margin:4px 6px 0 0}
-  /* experience list (simple) */
-  .xp ul{margin:0 0 6px 18px;padding:0}
-  .meta{color:var(--muted);font-size:14px;margin:6px 0}
-  /* gallery */
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .gallery img{width:100%;height:160px;object-fit:cover;border:1px solid var(--rule);border-radius:8px}
-  @media(max-width:680px){ .gallery{grid-template-columns:repeat(2,1fr)} }
-  /* ===== vertical timeline ===== */
-  .timeline{position:relative;margin:18px 0 0 0;padding-left:22px}
-  .timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--rule)}
-  .tl-item{position:relative;margin:0 0 18px 0}
-  .tl-item:before{content:"";position:absolute;left:-2px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
-  .tl-title{margin:0;font-weight:700}
-  .tl-meta{margin:2px 0 6px 0;color:var(--muted);font-size:14px}
-  .logo{height:16px;vertical-align:middle;margin-left:6px;opacity:.9}
-  footer{color:var(--muted);font-size:14px;margin-top:36px}
+
+  /* Centered “page” with soft paper feel */
+  .page{
+    max-width:var(--max);
+    margin:28px auto 56px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:12px;
+    padding:36px 26px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+
+  header h1{font-size:34px; line-height:1.25; margin:0 0 6px;}
+  header .tag{color:var(--muted); margin:0 0 10px;}
+  nav a{margin-right:14px; text-decoration:none; color:var(--link); font-weight:600;}
+  nav a:hover{text-decoration:underline;}
+
+  .photo{float:right; width:108px; height:108px; border-radius:100%;
+         overflow:hidden; margin-left:16px; border:1px solid var(--rule);}
+  .photo img{width:100%; height:100%; object-fit:cover;}
+
+  hr{border:0; border-top:1px solid var(--rule); margin:26px 0;}
+  h2{font-size:20px; margin:22px 0 10px;}
+  h3{font-size:18px; margin:16px 0 6px;}
+
+  /* Chips */
+  .chips{margin-top:8px;}
+  .chip{display:inline-block; border:1px solid var(--rule); border-radius:999px;
+        padding:4px 10px; color:var(--muted); font-size:12px; margin:4px 6px 0 0;}
+
+  /* Gallery */
+  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .gallery img{width:100%; height:160px; object-fit:cover; border:1px solid var(--rule); border-radius:8px;}
+  @media(max-width:680px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+
+  /* ===== Vertical timeline (aligned, colored bullets) ===== */
+  .timeline{ position:relative; margin:18px 0 0; padding-left:36px; }
+  .timeline:before{ content:""; position:absolute; left:18px; top:0; bottom:0; width:2px; background:var(--rule); }
+
+  .tl-item{ position:relative; margin:0 0 22px; padding-left:8px; }
+  .tl-item:before{
+    content:""; position:absolute; left:13px; top:.7em;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--accent);
+  }
+  /* Per-item accent colors */
+  .tl-item.deloitte:before{ border-color:#86BC25; }   /* Deloitte green */
+  .tl-item.accenture:before{ border-color:#A100FF; }  /* Accenture purple */
+  .tl-item.edu:before{ border-color:#0EA5E9; }        /* Education blue */
+
+  .tl-title{ margin:0; font-weight:700; display:inline-flex; align-items:center; gap:6px; }
+  .logo{ height:16px; display:inline-block; vertical-align:middle; opacity:.95; transform:translateY(2px); }
+  .tl-meta{ margin:2px 0 6px; color:var(--muted); font-size:14px; }
+
+  /* Experience lists */
+  .xp ul{ margin:0 0 6px 18px; padding:0; }
+
+  /* Footer */
+  footer{ color:var(--muted); font-size:14px; margin-top:34px; }
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<div class="page">
 
   <!-- HEADER -->
   <header>
@@ -94,31 +136,35 @@
   <section id="timeline">
     <h2>Timeline</h2>
     <div class="timeline">
-      <div class="tl-item">
+      <div class="tl-item deloitte">
         <p class="tl-title">Senior Consultant — Deloitte
           <img class="logo" src="logos/deloitte.svg" alt="Deloitte logo">
         </p>
         <p class="tl-meta">Nov 2021 – Present · Germany (Hybrid)</p>
         <p>Mainframe modernization, data migration, and cloud strategies; PoCs (COBOL→Java with Innowake); phased mainframe exit roadmaps.</p>
       </div>
-      <div class="tl-item">
+
+      <div class="tl-item accenture">
         <p class="tl-title">Senior App Dev Specialist — Accenture
           <img class="logo" src="logos/accenture.svg" alt="Accenture logo">
         </p>
         <p class="tl-meta">Aug 2019 – Oct 2021 · Pune, Wolfsburg</p>
         <p>L3 support for core mainframe apps, DB2 optimization, change deployments, client coordination.</p>
       </div>
-      <div class="tl-item">
+
+      <div class="tl-item accenture">
         <p class="tl-title">App Dev Analyst — Accenture</p>
         <p class="tl-meta">Oct 2015 – Aug 2019 · Pune, Hyderabad</p>
         <p>COBOL–DB2 development for US insurance; testing, prod releases with minimal downtime.</p>
       </div>
-      <div class="tl-item">
+
+      <div class="tl-item edu">
         <p class="tl-title">MBA (Operations) — IGNOU</p>
         <p class="tl-meta">2023 – 2025</p>
         <p>Capstone: Operational Risk in Mainframe Modernization (risk framework & practical recommendations).</p>
       </div>
-      <div class="tl-item">
+
+      <div class="tl-item edu">
         <p class="tl-title">B.E. (E&TC) — SPPU</p>
         <p class="tl-meta">2012 – 2015</p>
         <p>Robotics club; IIT Bombay Techfest hovercraft; RTDMS & grid interconnection projects.</p>
@@ -128,7 +174,7 @@
 
   <hr>
 
-  <!-- EXPERIENCE (amazon removed) -->
+  <!-- EXPERIENCE -->
   <section id="experience" class="xp">
     <h2>Experience</h2>
 
@@ -173,13 +219,13 @@
 
   <hr>
 
-  <!-- WRITING: replaced with your actual post link -->
+  <!-- WRITING -->
   <section id="writing">
     <h2>Writing & Posts</h2>
     <ul>
       <li><a href="https://www.linkedin.com/in/honraoprathmesh/details/recent-activity/shares/" target="_blank" rel="noopener">All LinkedIn shares</a></li>
       <li><a href="https://www.linkedin.com/posts/honraoprathmesh_appmodbydeloitte-mainframemodernization-legacymodernization-activity-7335213599637782548-Od6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB1qBI0Bg5mPaT7Eg1XCMbuL2uqICoVsF18" target="_blank" rel="noopener">AMM Training Day — code-first modernization (post)</a></li>
-      <!-- Add more posts here as <li><a href="LINK">Title</a></li> -->
+      <!-- Add more posts here as <li><a href="LINK" target="_blank" rel="noopener">Title</a></li> -->
     </ul>
   </section>
 
@@ -219,7 +265,7 @@
   <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:honraoprathmesh@gmail.com">honraoprathmesh@gmail.com</a> · LinkedIn:
+    <p>Email: <a href="mailto:prathmesh@example.com">prathmesh@example.com</a> · LinkedIn:
       <a href="https://www.linkedin.com/in/honraoprathmesh/" target="_blank" rel="noopener">/honraoprathmesh</a> · GitHub:
       <a href="https://github.com/prathm1" target="_blank" rel="noopener">@prathm1</a></p>
   </section>
@@ -229,6 +275,9 @@
   </footer>
 
 </div>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
