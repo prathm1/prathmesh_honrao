@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prathmesh Honrao — Portfolio</title>
+  <meta name="description" content="Engineering, AI, and Data | Mainframe Modernisation. Modernization & cloud strategy, data migration, mainframe systems.">
+  <meta property="og:title" content="Prathmesh Honrao — Portfolio">
+  <meta property="og:description" content="Engineering, AI, and Data | Mainframe Modernisation">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+    :root{ --bg:#ffffff; --fg:#111; --muted:#5b5b5b; --link:#1a73e8; --card:#f6f6f6; --border:#eaeaea; --max:860px; }
+    @media (prefers-color-scheme: dark){ :root{ --bg:#0b0b0b; --fg:#f2f2f2; --muted:#b6b6b6; --card:#111214; --border:#202225; --link:#8ab4f8; } }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;line-height:1.6;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px 64px;}
+    header{display:flex;gap:24px;align-items:center;justify-content:space-between;margin-top:8px;margin-bottom:18px;}
+    .id{flex:1}
+    h1{font-size:36px;line-height:1.2;margin:0 0 6px 0;}
+    .tag{color:var(--muted);margin:0}
+    nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+    nav a{color:var(--link);text-decoration:none;font-weight:600}
+    nav a:hover{text-decoration:underline}
+    .photo{width:110px;height:110px;border-radius:100%;background:var(--card);border:1px solid var(--border);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+    .photo img{width:100%;height:100%;object-fit:cover}
+    .note{background:var(--card);border:1px solid var(--border);padding:14px 16px;border-radius:14px;margin:22px 0;color:var(--muted)}
+    section{margin:34px 0}
+    h2{font-size:20px;margin:0 0 10px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:760px){ .grid{grid-template-columns:1fr} header{flex-direction:row} }
+    .item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+    .item h3{margin:0 0 4px 0;font-size:16px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    ul{padding-left:18px;margin:8px 0}
+    a{color:var(--link)}
+    .pill{display:inline-block;background:var(--card);border:1px solid var(--border);padding:4px 8px;border-radius:999px;margin-right:6px;margin-top:6px;font-size:12px;color:var(--muted)}
+    footer{margin-top:44px;color:var(--muted);font-size:14px}
+    .gallery{display:grid;grid-template-columns:repeat(3, 1fr);gap:10px}
+    @media (max-width:760px){ .gallery{grid-template-columns:repeat(2, 1fr);} }
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--card)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .kbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .contact a{margin-right:10px}
+    code{background:var(--card);border:1px solid var(--border);padding:1px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="content">
+    <header>
+      <div class="id">
+        <h1>Prathmesh Honrao</h1>
+        <p class="tag">Engineering, AI, and Data • Mainframe Modernisation • Hannover–Braunschweig–Göttingen–Wolfsburg (DE)</p>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#writing">Writing</a>
+          <a href="#education">Education</a>
+          <a href="#certs">Certifications</a>
+          <a href="#photos">Photos</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="photo"><img src="photos/me.jpg" alt="Profile"></div>
+    </header>
+
+    <div class="note">
+      This site is built from a single HTML file. Edit <code>index.html</code>, push to GitHub Pages, and it’s live.
+    </div>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p>Tech-driven, strategy-led professional with ~10 years of experience across automotive, insurance,
+      healthcare, and banking. I help organizations modernize legacy systems, execute cloud migrations,
+      and manage complex data transformations. Currently at Deloitte Germany, pursuing an MBA in Operations.</p>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="grid">
+        <article class="item"><h3>Deloitte — Senior Consultant</h3><div class="meta">Nov 2021 – Present · Germany</div>
+          <ul><li>Automated migration from Mainframe (DB2, VSAM) to Oracle for global insurer → ~80% cost reduction</li>
+          <li>Drove COBOL → Java modernization PoCs using Innowake</li>
+          <li>Developed phased mainframe exit strategies</li></ul>
+        </article>
+        <article class="item"><h3>Accenture — Application Development</h3><div class="meta">2015 – 2021 · India/Germany</div>
+          <ul><li>Led L3 support for automotive mainframe apps</li><li>Built COBOL–DB2 applications for US insurance clients</li></ul>
+        </article>
+        <article class="item"><h3>Amazon — IT & Ops</h3><div class="meta">Earlier · India</div>
+          <ul><li>IT operations and customer-centric process improvements</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <article class="item"><h3>COBOL → Java Modernization</h3><div class="meta">Innowake</div></article>
+        <article class="item"><h3>DB2 → PostgreSQL Converter</h3><div class="meta">Utility</div></article>
+        <article class="item"><h3>AWS Cost Estimator</h3><div class="meta">Python tool</div></article>
+        <article class="item"><h3>MBA Project — Operational Risk</h3><div class="meta">IGNOU</div></article>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing">
+      <h2>Writing & Posts</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/honraoprathmesh">Data Migration Talk — Frankfurt</a></li>
+        <li><a href="https://www.linkedin.com/in/honraoprathmesh">AMM Training Day Highlights</a></li>
+        <li><a href="https://www.linkedin.com/in/honraoprathmesh">Goethe B1 Certification Update</a></li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid">
+        <article class="item"><h3>MBA, Operations</h3><div class="meta">IGNOU · 2023–2025</div></article>
+        <article class="item"><h3>B.E., E&TC</h3><div class="meta">Savitribai Phule Pune Univ · 2012–2015</div></article>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs">
+      <h2>Certifications</h2>
+      <div class="grid">
+        <article class="item"><h3>Goethe-Zertifikat B1</h3><div class="meta">Goethe-Institut · Nov 2024</div></article>
+        <article class="item"><h3>Mainframe Modernization</h3><div class="meta">Udemy · Oct 2021</div></article>
+      </div>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos">
+      <h2>Photos</h2>
+      <div class="gallery">
+        <img src="photos/p1.jpg" alt="Photo 1">
+        <img src="photos/p2.jpg" alt="Photo 2">
+        <img src="photos/p3.jpg" alt="Photo 3">
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:prathmesh@example.com">prathmesh@example.com</a> · LinkedIn:
+      <a href="https://www.linkedin.com/in/honraoprathmesh">/honraoprathmesh</a></p>
+    </section>
+
+    <footer><div>© {year} Prathmesh Honrao • Hosted free on GitHub Pages.</div></footer>
+  </div>
+</body>
+</html>
