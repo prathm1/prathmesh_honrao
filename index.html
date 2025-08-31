@@ -12,21 +12,20 @@
      THEME (GitHub-like UI)
      ========================= */
   :root{
-    --app-bg:#f6f8fa;       /* light grey app background */
-    --card-bg:#ffffff;      /* white content card */
-    --ink:#1f2328;          /* primary text */
-    --muted:#57606a;        /* secondary text */
-    --link:#0969da;         /* link blue */
-    --rule:#d0d7de;         /* hairline rule */
-    --soft:#f3f4f6;         /* very light section bg */
-    --soft-alt:#f9fafb;     /* alternate section bg */
-    --max: 900px;           /* card width */
-    --accent:#0ea5e9;       /* generic accent */
-    --dl-green:#86BC25;     /* Deloitte */
-    --ac-purple:#A100FF;    /* Accenture */
+    --app-bg:#f6f8fa;
+    --card-bg:#ffffff;
+    --ink:#1f2328;
+    --muted:#57606a;
+    --link:#0969da;
+    --rule:#d0d7de;
+    --soft:#f3f4f6;
+    --soft-alt:#f9fafb;
+    --max: 900px;
+    --accent:#0ea5e9;
+    --dl-green:#86BC25;
+    --ac-purple:#A100FF;
   }
 
-  /* System sans (like GitHub) */
   html,body{height:100%}
   body{
     margin:0; background:var(--app-bg); color:var(--ink);
@@ -34,7 +33,6 @@
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
 
-  /* Centered white card */
   .card{
     max-width:var(--max);
     margin:28px auto 56px;
@@ -45,11 +43,9 @@
     overflow:hidden;
   }
 
-  /* Inner layout */
   .wrap{ padding:28px 22px 36px; }
   @media (min-width:880px){ .wrap{ padding:36px 40px 48px; } }
 
-  /* Header */
   header h1{font-size:32px;line-height:1.25;margin:0 0 6px}
   .tag{color:var(--muted);margin:0 0 12px}
   nav{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
@@ -58,41 +54,48 @@
   .photo{float:right;width:112px;height:112px;border-radius:50%;overflow:hidden;margin-left:16px;border:1px solid var(--rule);background:#fff}
   .photo img{width:100%;height:100%;object-fit:cover}
 
-  /* Section blocks with light backgrounds */
   .section{padding:22px;border:1px solid var(--rule);border-radius:10px;margin:18px 0;background:var(--soft)}
   .section.alt{background:var(--soft-alt)}
   h2{font-size:20px;margin:0 0 10px}
   h3{font-size:18px;margin:14px 0 6px}
   .meta{color:var(--muted);font-size:14px;margin:2px 0 8px}
 
-  /* Chips */
   .chips{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
   .chip{border:1px solid var(--rule);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px;background:#fff}
 
-  /* Timeline (no overlap, professional) */
-  .timeline{position:relative;margin:4px 0 0;padding-left:38px}
-  .timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--rule)}
-  .tl-item{position:relative;margin:0 0 18px;padding-left:4px}
-  .tl-item:before{
-    content:"";position:absolute;left:13px;top:.65em;width:12px;height:12px;border-radius:50%;
-    background:#fff;border:2px solid var(--accent);
+  /* ===== Timeline (grid-based, bullet separate column) ===== */
+  .timeline{ margin:6px 0 0; }
+  .timeline-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:28px 1fr;
+    row-gap:18px;
   }
-  .tl-item.deloitte:before{border-color:var(--dl-green)}
-  .tl-item.accenture:before{border-color:var(--ac-purple)}
-  .tl-item.edu:before{border-color:var(--accent)}
-  .tl-title{margin:0;display:inline-flex;gap:8px;align-items:center;font-weight:700}
-  .logo{height:16px;opacity:.95;vertical-align:middle;transform:translateY(2px)}
+  .timeline-grid::before{
+    content:""; position:absolute; left:13px; top:0; bottom:0;
+    width:2px; background:var(--rule);
+  }
+  .dot{
+    width:12px; height:12px; border-radius:50%;
+    background:#fff; border:2px solid var(--accent);
+    margin-top:.55em; z-index:1;
+  }
+  .dot.deloitte{ border-color:var(--dl-green); }
+  .dot.accenture{ border-color:var(--ac-purple); }
+  .dot.edu{ border-color:var(--accent); }
 
-  /* Lists */
+  .tl-card{ padding-left:4px; }
+  .tl-title{ margin:0; display:inline-flex; align-items:center; gap:8px; font-weight:700 }
+  .tl-meta{ margin:2px 0 6px; color:var(--muted); font-size:14px; }
+  .logo{ height:16px; opacity:.95; vertical-align:middle; transform:translateY(2px); }
+
   ul{margin:0 0 8px 18px;padding:0}
   li{margin:4px 0}
 
-  /* Gallery */
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .gallery img{width:100%;height:160px;object-fit:cover;border:1px solid var(--rule);border-radius:8px;background:#fff}
   @media (max-width:720px){ .gallery{grid-template-columns:repeat(2,1fr)} }
 
-  /* Accordions (drop-downs) */
   .accordion{border:1px solid var(--rule);border-radius:10px;background:#fff;overflow:hidden}
   .acc-item + .acc-item{border-top:1px solid var(--rule)}
   .acc-button{
@@ -106,7 +109,6 @@
   .acc-item.open .acc-panel{max-height:480px}
   .acc-item.open .acc-icon{transform:rotate(90deg)}
 
-  /* Footer */
   footer{padding:18px 22px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px;background:#fff}
 </style>
 </head>
@@ -114,15 +116,11 @@
 
 <div class="card">
   <div class="wrap">
-    <!-- =========================================
-         HEADER (EDIT name, tagline, nav links)
-         ========================================= -->
+    <!-- HEADER -->
     <header>
       <div class="photo"><img src="photos/me.jpg" alt="Prathmesh Honrao"></div>
-      <h1><!-- EDIT HERE: Your name -->Prathmesh Honrao</h1>
-      <p class="tag"><!-- EDIT HERE: Short tagline -->
-        Engineering, AI & Data · Mainframe Modernisation · Hannover–Braunschweig–Göttingen–Wolfsburg (DE)
-      </p>
+      <h1>Prathmesh Honrao</h1>
+      <p class="tag">Engineering, AI & Data · Mainframe Modernisation · Hannover–Braunschweig–Göttingen–Wolfsburg (DE)</p>
       <nav>
         <a href="#about">About</a>
         <a href="#timeline">Timeline</a>
@@ -136,17 +134,15 @@
       </nav>
     </header>
 
-    <!-- =========================================
-         ABOUT
-         ========================================= -->
+    <!-- ABOUT -->
     <section id="about" class="section">
       <h2>About</h2>
-      <p><!-- EDIT HERE: About paragraph -->
+      <p>
         Tech-driven, strategy-led professional with ~10 years across automotive, insurance, healthcare, and banking.
         I help organizations modernize legacy systems, execute cloud migrations, and manage complex data transformations.
         Currently at Deloitte Germany, pursuing an MBA in Operations.
       </p>
-      <div class="chips"><!-- EDIT HERE: Add/Remove chips -->
+      <div class="chips">
         <span class="chip">Modernization & Cloud (AWS, x86)</span>
         <span class="chip">Mainframe (COBOL, DB2, IMS, z/OS)</span>
         <span class="chip">Data Migration (DB2, Oracle, PostgreSQL, MariaDB)</span>
@@ -155,214 +151,95 @@
       </div>
     </section>
 
-    <!-- =========================================
-         TIMELINE (markers colored per employer)
-         ========================================= -->
+    <!-- TIMELINE -->
     <section id="timeline" class="section alt">
       <h2>Timeline</h2>
       <div class="timeline">
-        <div class="tl-item deloitte">
-          <p class="tl-title">Senior Consultant — Deloitte
-            <img class="logo" src="logos/deloitte.svg" alt="Deloitte logo">
-          </p>
-          <p class="meta">Nov 2021 – Present · Germany (Hybrid)</p>
-          <p>Mainframe modernization, data migration, and cloud strategies; PoCs (COBOL→Java with Innowake); phased mainframe exit roadmaps.</p>
-        </div>
+        <div class="timeline-grid">
 
-        <div class="tl-item accenture">
-          <p class="tl-title">Senior App Dev Specialist — Accenture
-            <img class="logo" src="logos/accenture.svg" alt="Accenture logo">
-          </p>
-          <p class="meta">Aug 2019 – Oct 2021 · Pune, Wolfsburg</p>
-          <p>L3 support for core mainframe apps, DB2 optimization, change deployments, client coordination.</p>
-        </div>
+          <div class="dot deloitte"></div>
+          <div class="tl-card">
+            <p class="tl-title">Senior Consultant — Deloitte
+              <img class="logo" src="logos/deloitte.svg" alt="Deloitte logo">
+            </p>
+            <p class="tl-meta">Nov 2021 – Present · Germany (Hybrid)</p>
+            <p>Mainframe modernization, data migration, and cloud strategies; PoCs (COBOL→Java with Innowake); phased mainframe exit roadmaps.</p>
+          </div>
 
-        <div class="tl-item accenture">
-          <p class="tl-title">App Dev Analyst — Accenture</p>
-          <p class="meta">Oct 2015 – Aug 2019 · Pune, Hyderabad</p>
-          <p>COBOL–DB2 development for US insurance; testing, prod releases with minimal downtime.</p>
-        </div>
+          <div class="dot accenture"></div>
+          <div class="tl-card">
+            <p class="tl-title">Senior App Dev Specialist — Accenture
+              <img class="logo" src="logos/accenture.svg" alt="Accenture logo">
+            </p>
+            <p class="tl-meta">Aug 2019 – Oct 2021 · Pune, Wolfsburg</p>
+            <p>L3 support for core mainframe apps, DB2 optimization, change deployments, client coordination.</p>
+          </div>
 
-        <div class="tl-item edu">
-          <p class="tl-title">MBA (Operations) — IGNOU</p>
-          <p class="meta">2023 – 2025</p>
-          <p>Capstone: Operational Risk in Mainframe Modernization (risk framework & practical recommendations).</p>
-        </div>
+          <div class="dot accenture"></div>
+          <div class="tl-card">
+            <p class="tl-title">App Dev Analyst — Accenture</p>
+            <p class="tl-meta">Oct 2015 – Aug 2019 · Pune, Hyderabad</p>
+            <p>COBOL–DB2 development for US insurance; testing, prod releases with minimal downtime.</p>
+          </div>
 
-        <div class="tl-item edu">
-          <p class="tl-title">B.E. (E&TC) — SPPU</p>
-          <p class="meta">2012 – 2015</p>
-          <p>Robotics club; IIT Bombay Techfest hovercraft; RTDMS & grid interconnection projects.</p>
+          <div class="dot edu"></div>
+          <div class="tl-card">
+            <p class="tl-title">MBA (Operations) — IGNOU</p>
+            <p class="tl-meta">2023 – 2025</p>
+            <p>Capstone: Operational Risk in Mainframe Modernization (risk framework & practical recommendations).</p>
+          </div>
+
+          <div class="dot edu"></div>
+          <div class="tl-card">
+            <p class="tl-title">B.E. (E&TC) — SPPU</p>
+            <p class="tl-meta">2012 – 2015</p>
+            <p>Robotics club; IIT Bombay Techfest hovercraft; RTDMS & grid interconnection projects.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- =========================================
-         EXPERIENCE
-         ========================================= -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <h2>Experience</h2>
-
-      <h3>Deloitte — Senior Consultant
-        <img class="logo" src="logos/deloitte.svg" alt="Deloitte logo">
-      </h3>
-      <p class="meta">Nov 2021 – Present · Germany (Hybrid)</p>
-      <ul>
-        <li>Automated migration from Mainframe (DB2, VSAM) to Oracle for a global insurer → ≈80% mainframe cost reduction; better DB performance & modern interfaces.</li>
-        <li>COBOL → Java modernization PoCs (automotive & insurance) with Innowake; client enablement & delivery coordination.</li>
-        <li>Phased mainframe exit strategies aligning business goals & technical execution; discovery & mining reports for roadmaps and RFPs.</li>
-      </ul>
-
-      <h3>Accenture — Senior Application Development Specialist
-        <img class="logo" src="logos/accenture.svg" alt="Accenture logo">
-      </h3>
-      <p class="meta">Aug 2019 – Oct 2021 · Pune, Wolfsburg (Hybrid)</p>
-      <ul>
-        <li>L3 support for core mainframe apps: performance optimization, outage management, change deployments.</li>
-        <li>Onshore client coordination; SME for mainframe in automotive domain; DB2 aftersales DB availability & performance.</li>
-      </ul>
-
-      <h3>Accenture — Application Development Analyst</h3>
-      <p class="meta">Oct 2015 – Aug 2019 · Pune, Hyderabad (On-site)</p>
-      <ul>
-        <li>COBOL–DB2 build & unit testing for US insurance; stable production releases; client-facing requirements.</li>
-      </ul>
+      <!-- EDIT EXPERIENCE CONTENT -->
     </section>
 
-    <!-- =========================================
-         PROJECTS (Accordion)
-         ========================================= -->
+    <!-- PROJECTS (Accordion) -->
     <section id="projects" class="section alt">
       <h2>Selected Projects</h2>
-
-      <div class="accordion" id="proj">
-        <!-- EDIT HERE: Duplicate acc-item blocks to add more projects -->
-        <div class="acc-item open">
-          <button class="acc-button" aria-expanded="true">
-            COBOL → Java Modernization (Innowake)
-            <span class="acc-icon">›</span>
-          </button>
-          <div class="acc-panel" style="max-height:320px">
-            <div class="acc-panel-inner">
-              Functional equivalence, readability gains, targeted testing without heavy SME reliance.
-            </div>
-          </div>
-        </div>
-
-        <div class="acc-item">
-          <button class="acc-button" aria-expanded="false">
-            DB2 z/OS → PostgreSQL DDL Converter
-            <span class="acc-icon">›</span>
-          </button>
-          <div class="acc-panel">
-            <div class="acc-panel-inner">
-              Maps tables, indexes, stored procedures, triggers; annotates removed DB2 clauses for traceability.
-            </div>
-          </div>
-        </div>
-
-        <div class="acc-item">
-          <button class="acc-button" aria-expanded="false">
-            AWS Cost Estimator for Mainframe Exit
-            <span class="acc-icon">›</span>
-          </button>
-          <div class="acc-panel">
-            <div class="acc-panel-inner">
-              Generates Excel + AWS Calculator JSON; region-aware assumptions; clear conversion logic.
-            </div>
-          </div>
-        </div>
-
-        <div class="acc-item">
-          <button class="acc-button" aria-expanded="false">
-            MBA Project — Operational Risk in Modernization
-            <span class="acc-icon">›</span>
-          </button>
-          <div class="acc-panel">
-            <div class="acc-panel-inner">
-              Practical risk framework for legacy-to-cloud programs; recommendations based on consulting experience.
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Accordion content -->
     </section>
 
-    <!-- =========================================
-         WRITING
-         ========================================= -->
+    <!-- WRITING -->
     <section id="writing" class="section">
       <h2>Writing & Posts</h2>
       <ul>
-        <!-- EDIT HERE: Replace/add your LinkedIn post links -->
-        <li><a href="https://www.linkedin.com/in/honraoprathmesh/details/recent-activity/shares/" target="_blank" rel="noopener">All LinkedIn shares</a></li>
-        <li><a href="https://www.linkedin.com/posts/honraoprathmesh_appmodbydeloitte-mainframemodernization-legacymodernization-activity-7335213599637782548-Od6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB1qBI0Bg5mPaT7Eg1XCMbuL2uqICoVsF18" target="_blank" rel="noopener">AMM Training Day — code-first modernization (post)</a></li>
+        <li><a href="https://www.linkedin.com/in/honraoprathmesh/details/recent-activity/shares/" target="_blank">All LinkedIn shares</a></li>
       </ul>
     </section>
 
-    <!-- =========================================
-         EDUCATION + CERTIFICATIONS (Accordion)
-         ========================================= -->
+    <!-- EDUCATION + CERTIFICATIONS -->
     <section id="education" class="section alt">
       <h2>Education</h2>
-      <ul>
-        <!-- EDIT HERE: Education entries -->
-        <li><strong>MBA (Operations), IGNOU</strong> — 2023–2025 · Grade: A · ANABIN H+ · Capstone on modernization risk.</li>
-        <li><strong>B.E. (E&TC), Savitribai Phule Pune University</strong> — First Class with Distinction.</li>
-      </ul>
-
-      <div id="certs" style="margin-top:14px">
-        <h3>Certifications</h3>
-        <div class="accordion">
-          <div class="acc-item open">
-            <button class="acc-button" aria-expanded="true">
-              Goethe-Zertifikat B1 — Goethe-Institut (Nov 2024)
-              <span class="acc-icon">›</span>
-            </button>
-            <div class="acc-panel" style="max-height:220px">
-              <div class="acc-panel-inner">
-                ID: 2000-AB1A-0002077923
-              </div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-button" aria-expanded="false">
-              Mainframe Modernization — Udemy (Oct 2021)
-              <span class="acc-icon">›</span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel-inner">
-                ID: UC-73d33c2c-1451-4d2e-99db-5232087f689e
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Education content -->
     </section>
 
-    <!-- =========================================
-         PHOTOS
-         ========================================= -->
+    <!-- PHOTOS -->
     <section id="photos" class="section">
       <h2>Photos</h2>
       <div class="gallery">
-        <!-- EDIT HERE: Replace with your image filenames -->
         <img src="photos/p1.jpg" alt="Photo 1">
         <img src="photos/p2.jpg" alt="Photo 2">
         <img src="photos/p3.jpg" alt="Photo 3">
       </div>
     </section>
 
-    <!-- =========================================
-         CONTACT
-         ========================================= -->
+    <!-- CONTACT -->
     <section id="contact" class="section alt">
       <h2>Contact</h2>
-      <p><!-- EDIT HERE: Your email -->
-        Email: <a href="mailto:prathmesh@example.com">prathmesh@example.com</a> ·
-        LinkedIn: <a href="https://www.linkedin.com/in/honraoprathmesh/" target="_blank" rel="noopener">/honraoprathmesh</a> ·
-        GitHub: <a href="https://github.com/prathm1" target="_blank" rel="noopener">@prathm1</a>
-      </p>
+      <p>Email: <a href="mailto:prathmesh@example.com">prathmesh@example.com</a></p>
     </section>
   </div>
 
@@ -372,10 +249,7 @@
 </div>
 
 <script>
-  // Year in footer
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Simple accordion behavior (Projects & Certifications)
   document.querySelectorAll('.accordion').forEach(acc => {
     acc.addEventListener('click', e => {
       const btn = e.target.closest('.acc-button');
@@ -383,16 +257,14 @@
       const item = btn.parentElement;
       const panel = item.querySelector('.acc-panel');
       const isOpen = item.classList.contains('open');
-
-      // close others in same accordion
       acc.querySelectorAll('.acc-item').forEach(i => {
-        if(i !== item){ i.classList.remove('open'); i.querySelector('.acc-button').setAttribute('aria-expanded','false'); i.querySelector('.acc-panel').style.maxHeight = 0; }
+        if(i !== item){
+          i.classList.remove('open');
+          i.querySelector('.acc-panel').style.maxHeight=0;
+        }
       });
-
-      // toggle current
       item.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      panel.style.maxHeight = item.classList.contains('open') ? panel.scrollHeight + 'px' : 0;
+      panel.style.maxHeight = item.classList.contains('open') ? panel.scrollHeight+'px' : 0;
     });
   });
 </script>
