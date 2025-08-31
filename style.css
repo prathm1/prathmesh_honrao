@@ -1,0 +1,44 @@
+/* layout */
+body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,ui-sans-serif,system-ui; color:#111; background:#fff; }
+.container { max-width:900px; margin:0 auto; padding:20px; }
+.row { display:flex; align-items:flex-start; gap:20px; }
+
+/* header */
+#dpic .ppic { width:140px; height:140px; border-radius:50%; object-fit:cover; border:1px solid #e5e7eb; }
+#ddesc h1 { font-size:32px; margin:0 0 6px; }
+#ddesc h2 { font-size:18px; font-weight:500; color:#5b5b5b; margin:0 0 8px; }
+#dico .iico { width:22px; height:22px; margin-right:8px; opacity:.9 }
+#demail { transition:.2s; color:#111; margin-top:6px }
+
+/* hairline rule */
+hr { border:0; border-top:1px solid #e5e7eb; margin:10px 0 0 }
+
+/* timeline entries */
+.entry { margin:18px 0; align-items:flex-start; }
+.timespan { width:90px; color:#6b7280; flex:0 0 90px; padding-top:3px; }
+.ico { width:42px; flex:0 0 42px; position:relative; display:flex; justify-content:center; }
+.ico img { max-width:32px; opacity:.95 }
+.entry-dot { position:absolute; left:calc(50% - 5px); top:6px; width:10px; height:10px; border-radius:50%; background:#fff; border:2px solid #22c55e; }
+.desc { flex:1; min-width:0; }
+
+/* cards strip */
+#featured-talks .row { flex-wrap:wrap }
+.card { width:200px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; margin:12px 12px 0 0; }
+.ccimg img { width:100%; height:120px; object-fit:cover; display:block; }
+.cdesc { padding:8px 10px; font-size:14px; color:#374151 }
+
+/* projects list */
+.project { display:flex; gap:12px; margin:16px 0; }
+.pico img { width:120px; height:80px; object-fit:cover; border-radius:8px; border:1px solid #e5e7eb }
+.pdesc { flex:1 }
+
+/* lists */
+.ctitle { text-transform:lowercase; letter-spacing:.04em; color:#374151; margin:18px 0 10px; font-weight:700 }
+ul.nodot { list-style:none; padding-left:0 }
+ul.nodot li { margin:6px 0 }
+
+/* responsive */
+@media (max-width:700px){
+  .row { flex-direction:column }
+  .timespan, .ico { width:auto; flex:none }
+}
