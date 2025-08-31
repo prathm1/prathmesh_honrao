@@ -15,29 +15,48 @@ hr { border: 0; border-top: 1px solid #e5e7eb; margin: 10px 0 0; }
 .entry { margin: 18px 0; align-items: flex-start; }
 .timespan { width: 90px; color: #6b7280; flex: 0 0 90px; padding-top: 3px; }
 
-/* --- Icon column: faint vertical guide + subtle grey dot (matches Andrej) --- */
+/* --- Icon column: faint vertical guide + subtle grey dot (like Andrej) --- */
 .ico{
   width: 42px; flex: 0 0 42px; position: relative;
   display: flex; justify-content: center;
 }
-/* vertical guide */
-.ico::before{
-  content:""; position:absolute; left:20px; top:-18px; bottom:-18px;
-  width:2px; background:#e5e7eb;   /* soft grey */
-}
-/* small grey dot */
+.ico::before{ content:""; position:absolute; left:20px; top:-18px; bottom:-18px; width:2px; background:#e5e7eb; }
 .entry-dot{
   position:absolute; left:15px; top:6px;
   width:10px; height:10px; border-radius:50%;
-  background:#fff; border:2px solid #d1d5db; /* light grey ring */
-  opacity:.95;
+  background:#fff; border:2px solid #d1d5db; opacity:.95;
 }
-/* company logo sizing */
-.ico img{
-  max-height:28px; width:auto; object-fit:contain; display:block; opacity:.95;
-}
+.ico img{ max-height:28px; width:auto; object-fit:contain; display:block; opacity:.95; }
 
 .desc { flex: 1; min-width: 0; }
+
+/* --- Keep any ad-hoc images in descriptions from blowing up --- */
+.desc img{
+  max-width: 320px;           /* hard cap so single images never span full width */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+/* --- Experience photo grids (small tiles) --- */
+.xp-photos{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 12px 0 4px;
+}
+.xp-photos img{
+  width: 100%;
+  height: 100px;              /* small, uniform thumbnails */
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
 
 /* --- Featured cards strip --- */
 #featured-talks .row { flex-wrap: wrap; }
@@ -45,7 +64,7 @@ hr { border: 0; border-top: 1px solid #e5e7eb; margin: 10px 0 0; }
 .ccimg img { width: 100%; height: 120px; object-fit: cover; display: block; }
 .cdesc { padding: 8px 10px; font-size: 14px; color: #374151; }
 
-/* --- Projects list --- */
+/* --- Projects list (kept compact) --- */
 .project { display: flex; gap: 12px; margin: 16px 0; }
 .pico img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #e5e7eb; }
 .pdesc { flex: 1; }
@@ -55,12 +74,9 @@ hr { border: 0; border-top: 1px solid #e5e7eb; margin: 10px 0 0; }
 ul.nodot { list-style: none; padding-left: 0; }
 ul.nodot li { margin: 6px 0; }
 
-/* --- Experience photo grids (your Deloitte/Accenture pics) --- */
-.xp-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 12px 0 4px; }
-.xp-photos img { width: 100%; height: 100px; object-fit: cover; border-radius: 8px; border: 1px solid #e5e7eb; background: #fff; }
-
 /* --- Responsive --- */
 @media (max-width: 700px) {
   .row { flex-direction: column; }
   .timespan, .ico { width: auto; flex: none; }
+  .desc img{ max-width: 100%; }      /* let single images fill mobile width but not exceed screen */
 }
