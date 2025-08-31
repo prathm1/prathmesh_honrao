@@ -7,178 +7,154 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <!-- Header Section -->
-  <div id="dhead" class="container">
-    <div class="row">
-      <div id="dpic">
-        <img src="assets/me.jpg" class="ppic" alt="Prathmesh Honrao" />
-      </div>
-      <div id="ddesc">
-        <h1>Prathmesh Honrao</h1>
-        <h2>Mainframe Modernisation · Cloud Migration · Data Transformation · AI</h2>
-        <div id="dico">
-          <a href="https://www.linkedin.com/in/honraoprathmesh/"><img src="assets/clinkedin.svg" class="iico" alt="LinkedIn" /></a>
-          <a href="https://github.com/prathm1"><img src="assets/cgithub.svg" class="iico" alt="GitHub" /></a>
-          <a href="https://prathm1.github.io/prathmesh_honrao/"><img src="assets/crss.svg" class="iico" alt="Website" /></a>
-          <img src="assets/cemail.svg" style="cursor: pointer;" class="iico" id="iemail" title="click to reveal" />
+
+  <!-- ========================================================= -->
+  <!-- SECTION 1: HEADER / ABOUT -->
+  <!-- ========================================================= -->
+  <div id="header" class="container">
+    <!-- Profile photo -->
+    <img src="assets/me.jpg" class="ppic" alt="Prathmesh Honrao">
+
+    <!-- Name & title -->
+    <h1>Prathmesh Honrao</h1>
+    <h2>Mainframe Modernisation · Cloud Migration · Data Transformation · AI</h2>
+
+    <!-- Personal quote -->
+    <div class="quote">"Transforming legacy into future-ready systems."</div>
+
+    <!-- Social icons -->
+ <!--   <div id="dico">
+      <a href="https://www.linkedin.com/in/honraoprathmesh/"><img src="assets/clinkedin.svg" class="iico" alt="LinkedIn"></a>
+      <a href="https://github.com/prathm1"><img src="assets/cgithub.svg" class="iico" alt="GitHub"></a>
+      <a href="https://prathm1.github.io/prathmesh_honrao/"><img src="assets/crss.svg" class="iico" alt="Website"></a>
+      <img src="assets/cemail.svg" class="iico" id="iemail" title="click to reveal email" alt="Email">
+    </div>
+    <div id="demail"></div>
+  </div> -->
+
+  <hr>
+
+  <!-- ========================================================= -->
+  <!-- SECTION 2: TIMELINE / EXPERIENCE / EDUCATION -->
+  <!-- ========================================================= -->
+  <div id="history" class="container">
+
+    <!-- Deloitte -->
+    <div class="entry">
+      <div class="timespan">2021 - present</div>
+      <div class="ico"><div class="entry-dot"></div><img src="assets/del1.png" alt="Deloitte"></div>
+      <div class="desc">
+        <strong>Senior Consultant at Deloitte</strong> (Germany, hybrid).  
+        I lead and deliver mainframe modernization, data migration, and cloud strategies:
+        <ul>
+          <li>Automated Mainframe (DB2/VSAM) → Oracle migration (~80% cost reduction)</li>
+          <li>COBOL → Java modernization PoCs (Innowake) for automotive & insurance clients</li>
+          <li>Phased mainframe exit strategies; discovery/mining → detailed roadmaps & RFPs</li>
+        </ul>
+        <!-- Deloitte photos -->
+        <div class="xp-photos">
+          <img src="assets/deloitte1.jpeg" alt="Deloitte presentation 1">
+          <img src="assets/deloitte2.jpeg" alt="Deloitte presentation 2">
         </div>
-        <div id="demail"></div>
+      </div>
+    </div>
+
+    <!-- Accenture (Senior) -->
+    <div class="entry">
+      <div class="timespan">2019 - 2021</div>
+      <div class="ico"><div class="entry-dot"></div><img src="assets/accen1.png" alt="Accenture"></div>
+      <div class="desc">
+        <strong>Senior Application Development Specialist at Accenture</strong> (Pune, Wolfsburg).  
+        L3 support for core mainframe apps, DB2 performance & availability, change deployments, client coordination.
+      </div>
+    </div>
+
+    <!-- Accenture (Analyst) -->
+    <div class="entry">
+      <div class="timespan">2015 - 2019</div>
+      <div class="ico"><div class="entry-dot"></div><img src="assets/accenture1.png" alt="Accenture"></div>
+      <div class="desc">
+        <strong>Application Development Analyst at Accenture</strong> (Pune, Hyderabad).  
+        Built COBOL–DB2 applications for US insurance; testing & production releases with minimal downtime.
+                <!-- Accenture photo -->
+        <div class="xp-photos">
+          <img src="assets/accenture1.jpeg" alt="Accenture event">
+        </div>
+      </div>
+    </div>
+
+    <!-- IGNOU -->
+    <div class="entry">
+      <div class="timespan">2023 - 2025</div>
+      <div class="ico"><div class="entry-dot"></div><img src="assets/ignou.png" alt="IGNOU"></div>
+      <div class="desc">
+        <strong>MBA (Operations)</strong>, IGNOU (Grade A).  
+        Capstone: Operational Risk in Mainframe Modernization (risk framework & practical recommendations).  
+        ANABIN H+ (German-equivalent Master).
+        <!-- IGNOU photo (resized like xp-photos) -->
+        <div class="xp-photos">
+          <img src="assets/ignou1.jpeg" alt="Studying IGNOU">
+        </div>
+      </div>
+    </div>
+
+    <!-- SPPU -->
+    <div class="entry">
+      <div class="timespan">2011 - 2015</div>
+      <div class="ico"><div class="entry-dot"></div><img src="assets/sppu.png" alt="SPPU"></div>
+      <div class="desc">
+        <strong>B.E. (E&TC)</strong>, Savitribai Phule Pune University.  
+        Robotics club; IIT Bombay Techfest hovercraft; RTDMS & grid interconnection projects.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- History/Timeline Section -->
-  <div id="history" class="container">
-    <div class="entry row">
-      <div class="timespan">2021 - Present</div>
-      <div class="ico">
-        <div class="entry-dot"></div>
-        <img src="assets/del1.png" alt="Deloitte" />
-      </div>
-      <div class="desc">
-        <strong>Senior Consultant at <a href="https://www2.deloitte.com/">Deloitte</a></strong> (Germany, hybrid).<br>
-        I lead and deliver mainframe modernization, data migration, and cloud strategies:
-        <ul class="tul">
-          <li>Automated Mainframe (DB2/VSAM) → Oracle migration (~80% cost reduction)</li>
-          <li>COBOL → Java modernization PoCs (Innowake) for automotive & insurance clients</li>
-          <li>Phased mainframe exit strategies; discovery/mining → detailed roadmaps & RFPs</li>
-        </ul>
-        <div class="hassets" style="height:150px; margin: 20px 0 10px 0;">
-          <div class="hasset" style="top: 0; left: 0; width: 50%;">
-            <img src="assets/deloitte1.jpeg" width="100%" alt="Deloitte presentation 1" />
-          </div>
-          <div class="hasset" style="top: 0; left: 50.5%; width: 49%;">
-            <img src="assets/deloitte2.jpeg" width="100%" alt="Deloitte presentation 2" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry row">
-      <div class="timespan">2019 - 2021</div>
-      <div class="ico">
-        <div class="entry-dot"></div>
-        <img src="assets/accen1.png" alt="Accenture" />
-      </div>
-      <div class="desc">
-        <strong>Senior Application Development Specialist at <a href="https://www.accenture.com/">Accenture</a></strong> (Pune, Wolfsburg).<br>
-        L3 support for core mainframe apps, DB2 performance & availability, change deployments, client coordination.
-        <div class="hassets" style="height:150px; margin: 20px 0 10px 0;">
-          <div class="hasset" style="top: 0; left: 0; width: 50%;">
-            <img src="assets/accenture1.jpeg" width="100%" alt="Accenture event" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry row">
-      <div class="timespan">2015 - 2019</div>
-      <div class="ico">
-        <div class="entry-dot"></div>
-        <img src="assets/accenture1.png" alt="Accenture" />
-      </div>
-      <div class="desc">
-        <strong>Application Development Analyst at <a href="https://www.accenture.com/">Accenture</a></strong> (Pune, Hyderabad).<br>
-        Built COBOL–DB2 applications for US insurance; testing & production releases with minimal downtime.
-      </div>
-    </div>
-
-    <div class="entry row">
-      <div class="timespan">2023 - 2025</div>
-      <div class="ico">
-        <div class="entry-dot"></div>
-        <img src="assets/ignou.png" alt="IGNOU" style="max-width: 32px;" />
-      </div>
-      <div class="desc">
-        <strong>MBA (Operations)</strong>, <a href="http://www.ignou.ac.in/">IGNOU</a> (Grade A).<br>
-        Capstone: Operational Risk in Mainframe Modernization (risk framework & practical recommendations).<br>
-        ANABIN H+ (German-equivalent Master).
-        <div class="hassets" style="height:150px; margin: 20px 0 10px 0;">
-          <div class="hasset" style="top: 0; left: 0; width: 50%;">
-            <img src="assets/ignou1.jpeg" width="100%" alt="Studying IGNOU" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry row">
-      <div class="timespan">2011 - 2015</div>
-      <div class="ico">
-        <div class="entry-dot"></div>
-        <img src="assets/sppu.png" alt="SPPU" style="max-width: 32px;" />
-      </div>
-      <div class="desc">
-        <strong>B.E. (E&TC)</strong>, <a href="https://www.unipune.ac.in/">Savitribai Phule Pune University</a>.<br>
-        Robotics club; IIT Bombay Techfest hovercraft; RTDMS & grid interconnection projects.
-      </div>
-    </div>
-  </div>
-
-  <!-- Certifications Section -->
-  <div style="background-color: #eee; padding-top: 1px; margin-top: 10px;">
-    <div id="certs" class="container">
-      <div class="ctitle">certifications</div>
-      <div class="row">
-        <div class="card">
-          <div class="ccimg"><img src="assets/goethe.jpg" alt="Goethe-Zertifikat" /></div>
-          <div class="cdesc">Goethe-Zertifikat B1 — Goethe-Institut (Dec 2024)</div>
-        </div>
-        <div class="card">
-          <div class="ccimg"><img src="assets/udemy.jpg" alt="Mainframe Modernization" /></div>
-          <div class="cdesc">Mainframe Modernization — Udemy (2021)</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Projects Section -->
-  <div id="pet-projects" class="container">
+  <!-- ========================================================= -->
+  <!-- SECTION 3: PROJECTS -->
+  <!-- ========================================================= -->
+  <div id="projects" class="container">
     <div class="ctitle">projects</div>
     <div class="project">
-      <div class="pico"><img src="assets/deloitte1.jpeg" alt="Mainframe Discovery" /></div>
-      <div class="pdesc"><a href="projects/axajp/index.html">Mainframe Discovery</a>: Developed tools for analyzing legacy mainframe systems to support modernization planning.</div>
-      <div class="pend"></div>
+      <div class="pico"><img src="assets/deloitte1.jpeg" alt="Modernization"></div>
+      <strong><a href="projects/axajp/index.html">Mainframe Discovery</a></strong>
     </div>
     <div class="project">
-      <div class="pico"><img src="assets/deloitte2.jpeg" alt="Mainframe Modernization Strategy" /></div>
-      <div class="pdesc"><a href="projects/axago/index.html">Mainframe Modernization Strategy</a>: Crafted phased roadmaps for transitioning mainframe applications to cloud environments.</div>
-      <div class="pend"></div>
+      <div class="pico"><img src="assets/deloitte2.jpeg" alt="DB2 migration"></div>
+      <strong><a href="projects/axago/index.html">Mainframe Modernization Strategy </a></strong>
     </div>
-    <div class="project">
-      <div class="pico"><img src="assets/deloitte3.jpeg" alt="Data Migration" /></div>
-      <div class="pdesc"><a href="projects/nn/index.html">Mainframe Modernization Data Migration</a>: Automated data migration from DB2/VSAM to Oracle, reducing costs significantly.</div>
-      <div class="pend"></div>
+    <div class="project"
+      <strong><a href="projects/nn/index.html">Mainframe Modernization Data Migration </a></strong>
     </div>
   </div>
 
-  <!-- Misc/Contact Section -->
-  <div class="container">
-    <div class="ctitle">misc</div>
-    <ul style="padding-left: 10px;">
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/honraoprathmesh/">/honraoprathmesh</a></li>
-      <li>GitHub: <a href="https://github.com/prathm1">@prathm1</a></li>
-      <li>Personal Quote: "Transforming legacy into future-ready systems."</li>
+  <hr>
+
+  <!-- ========================================================= -->
+  <!-- SECTION 4: CERTIFICATIONS -->
+  <!-- ========================================================= -->
+  <div id="certs" class="container">
+    <div class="ctitle">certifications</div>
+    <ul class="nodot">
+      <li>Goethe-Zertifikat B1 — Goethe-Institut (Dec 2024)</li>
+      <li>Mainframe Modernization — Udemy (2021)</li>
     </ul>
   </div>
 
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <hr>
 
-  <!-- Email Script -->
-  <script type="text/javascript">
-    const rot13 = (message) => {
-      const alpha = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
-      return message.replace(/[a-z]/gi, letter => alpha[alpha.indexOf(letter) + 13]);
-    }
-    var e_is_shown = false;
-    document.getElementById('iemail').addEventListener("click", function(){
-      let demail = document.getElementById('demail');
-      let msg = "prathmesh.honrao@example.com<br>Please feel free to reach out for collaboration or inquiries.";
-      demail.innerHTML = rot13(msg);
-      demail.style.opacity = e_is_shown ? 0 : 1;
-      e_is_shown = !e_is_shown;
-    });
-  </script>
+  <!-- ========================================================= -->
+  <!-- SECTION 5: CONTACT -->
+  <!-- ========================================================= -->
+  <div id="contact" class="container">
+    <div class="ctitle">contact</div>
+    <ul class="nodot">
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/honraoprathmesh/">/honraoprathmesh</a></li>
+      <li>GitHub: <a href="https://github.com/prathm1">@prathm1</a></li>
+    </ul>
+  </div>
+
+  <script src="scripts/email.js"></script>
 </body>
 </html>
