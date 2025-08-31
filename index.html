@@ -8,7 +8,6 @@
   </head>
   <body>
 
-    <!-- header -->
     <div id="dhead" class="container">
       <div class="row">
         <div id="dpic">
@@ -34,9 +33,9 @@
       Tech-driven, strategy-led professional helping enterprises modernize legacy systems, migrate to cloud, and manage complex data transformations.
     </div>
 
-    <!-- timeline / history -->
     <div id="history" class="container">
 
+      <!-- Deloitte -->
       <div class="entry row">
         <div class="timespan">2021 -</div>
         <div class="ico">
@@ -50,6 +49,8 @@
             <li>COBOL → Java modernization PoCs (Innowake) for automotive & insurance clients.</li>
             <li>Phased mainframe exit strategies; discovery/mining → detailed roadmaps & RFP support.</li>
           </ul>
+
+          <!-- small thumbnails, will not overflow -->
           <div class="xp-photos">
             <img src="assets/deloitte1.jpeg" alt="Deloitte presentation photo 1">
             <img src="assets/deloitte2.jpeg" alt="Deloitte presentation photo 2">
@@ -57,6 +58,7 @@
         </div>
       </div>
 
+      <!-- Accenture (Sr) -->
       <div class="entry row">
         <div class="timespan">2019 - 2021</div>
         <div class="ico">
@@ -71,6 +73,7 @@
         </div>
       </div>
 
+      <!-- Accenture (Analyst) -->
       <div class="entry row">
         <div class="timespan">2015 - 2019</div>
         <div class="ico">
@@ -82,6 +85,7 @@
         </div>
       </div>
 
+      <!-- Education -->
       <div class="entry row">
         <div class="timespan">2023 - 2025</div>
         <div class="ico">
@@ -90,6 +94,8 @@
         </div>
         <div class="desc">
           <strong>MBA (Operations)</strong>, IGNOU (Grade A). Capstone: Operational Risk Management in Mainframe Modernization (risk framework & practical recommendations). ANABIN H+ (German-equivalent Master).
+          <!-- optional thumbnail -->
+          <img src="assets/ignou1.jpeg" alt="IGNOU project" />
         </div>
       </div>
 
@@ -105,7 +111,6 @@
       </div>
     </div>
 
-    <!-- featured -->
     <div style="background-color: #eee; padding-top: 1px; margin-top: 10px;">
       <div id="featured-talks" class="container">
         <div class="ctitle">featured & posts</div>
@@ -120,7 +125,6 @@
       </div>
     </div>
 
-    <!-- projects -->
     <div id="pet-projects" class="container">
       <div class="ctitle">projects</div>
 
@@ -137,7 +141,6 @@
       </div>
     </div>
 
-    <!-- certifications -->
     <div class="container">
       <div class="ctitle">certifications</div>
       <ul class="nodot">
@@ -146,7 +149,6 @@
       </ul>
     </div>
 
-    <!-- contact -->
     <div class="container">
       <div class="ctitle">contact</div>
       <ul class="nodot">
@@ -158,21 +160,19 @@
 
     <br><br><br><br>
 
-    <!-- email reveal (ROT13) -->
     <script type="text/javascript">
       const rot13 = (s) => {
-        const a = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
+        const a='abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
         return s.replace(/[a-z]/gi, c => a[a.indexOf(c)+13]);
       };
       let shown=false;
       document.getElementById('iemail').addEventListener("click", function(){
-        const el = document.getElementById('demail');
-        // EDIT: replace with your email encoded via ROT13
+        const el=document.getElementById('demail');
         el.innerHTML = rot13("cenugqzru@tznvy.pbz"); /* prathmesh@gmail.com */
-        el.style.opacity = shown ? 0 : 1; shown = !shown;
+        el.style.opacity = shown ? 0 : 1; shown=!shown;
       });
       document.getElementById('iemail2').addEventListener("click", function(){
-        const el2 = document.getElementById('demail2');
+        const el2=document.getElementById('demail2');
         el2.innerHTML = rot13("cenugqzru@tznvy.pbz");
         this.style.display='none';
       });
