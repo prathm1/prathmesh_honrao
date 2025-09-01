@@ -303,22 +303,26 @@ hr {
 /* === Certifications === */
 .cert-group {
     margin: 30px 0;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .cert-group h3 {
-    color: #666;
-    font-size: 16px;
+    color: #444;
+    font-size: 18px;
     margin-bottom: 15px;
-    font-weight: 500;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .cert-group ul {
+    list-style: disc;
+    padding-left: 20px;
     margin: 0;
-    padding: 0;
 }
 
 .cert-group li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-size: 15px;
     color: #333;
 }
@@ -327,7 +331,21 @@ hr {
     color: #111;
 }
 
+/* Alternating background colors */
+.group-bg-1 {
+    background-color: rgba(240, 240, 255, 0.6); /* Light blue shade */
+}
+
+.group-bg-2 {
+    background-color: rgba(255, 240, 240, 0.6); /* Light red shade */
+}
+
+/* Mobile adjustments */
 @media (max-width: 700px) {
+    .cert-group {
+        padding: 15px;
+    }
+
     .cert-group li {
         font-size: 14px;
     }
