@@ -338,6 +338,7 @@ hr {
     margin: 30px 0;
     padding: 20px;
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7); /* Light white background for all cert groups */
 }
 
 .cert-group h3 {
@@ -364,22 +365,7 @@ hr {
     color: #111;
 }
 
-/* Alternating background colors */
-.group-bg-1 {
-    background-color: rgba(240, 240, 255, 0.6); /* Light blue shade */
-}
-
-.group-bg-2 {
-    background-color: rgba(255, 240, 240, 0.6); /* Light red shade */
-}
-
-/* Mobile adjustments */
-@media (max-width: 700px) {
-    .cert-group {
-        padding: 15px;
-    }
-
-    .cert-group li {
-        font-size: 14px;
-    }
+/* Remove the alternating background classes */
+.group-bg-1, .group-bg-2 {
+    background-color: transparent;
 }
