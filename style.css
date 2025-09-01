@@ -8,7 +8,6 @@ body {
 .container { 
     max-width: 900px; 
     margin: 0 auto; 
-    padding: 20px; 
 }
 hr { 
     border: 0; 
@@ -17,7 +16,11 @@ hr {
 }
 
 /* === Header === */
-#header { text-align: center; }
+#header { 
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.95);  /* Clean white for header */
+    padding: 40px 20px;
+}
 #header .ppic { 
     width: 160px; 
     height: 160px; 
@@ -125,6 +128,29 @@ hr {
     margin: 40px 0;
     text-align: center;
     text-transform: uppercase;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* === Section Backgrounds === */
+#header {
+    background-color: rgba(255, 255, 255, 0.95);  /* Clean white for header */
+    padding: 40px 20px;
+}
+
+#history {
+    background-color: rgba(240, 240, 255, 0.4);  /* Very light blue */
+    padding: 40px 20px;
+}
+
+#projects {
+    background-color: rgba(255, 240, 240, 0.4);  /* Very light red */
+    padding: 40px 20px;
+}
+
+#certs {
+    background-color: rgba(240, 255, 240, 0.4);  /* Very light green */
+    padding: 40px 20px;
 }
 
 /* Education section text alignment */
@@ -269,6 +295,13 @@ hr {
     #header h2 {
         font-size: 15px;
         padding: 0 15px;
+    }
+
+    #header,
+    #history,
+    #projects,
+    #certs {
+        padding: 30px 15px;
     }
 }
 
