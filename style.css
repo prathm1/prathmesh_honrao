@@ -37,7 +37,9 @@ hr { border:0; border-top:1px solid #e5e7eb; margin:30px 0; }
 }
 #history .desc ul {
   text-align: left;
-  margin-left: 1rem;
+  margin-left: 20px;
+  list-style-type: disc;  /* This adds the bullet points */
+  padding-left: 20px;
 }
 
 /* === Experience Photos === */
@@ -59,4 +61,27 @@ ul.nodot li { margin:6px 0; }
   .entry { flex-direction:column; }
   .timespan,.ico { width:auto; flex:none; }
   #header .ppic { width:120px; height:120px; }
+}
+
+/* Fix timeline for mobile */
+.entry {
+    position: relative;
+    z-index: 1;
+}
+
+.entry-dot {
+    position: absolute;
+    z-index: 2;
+}
+
+/* Make timeline continuous */
+#history::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background-color: #e0e0e0;
+    height: 100%;
+    z-index: 0;
 }
