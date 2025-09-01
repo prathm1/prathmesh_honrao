@@ -365,46 +365,7 @@ hr {
     color: #111;
 }
 
-/* === Map Section === */
-.map-container {
-    height: 400px;
-    margin: 20px 0;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.map-toggle {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.2s;
-}
-
-.map-toggle:hover {
-    background: #e9ecef;
-}
-
-/* === TLDR Section === */
-.tldr-section {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.tldr-toggle {
-    background: transparent;
-    border: 1px solid #ddd;
-    padding: 6px 12px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.tldr-content {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #555;
-    animation: fadeIn 0.5s ease-in;
+/* Remove the alternating background classes */
+.group-bg-1, .group-bg-2 {
+    background-color: transparent;
 }
