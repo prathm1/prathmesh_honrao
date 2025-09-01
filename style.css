@@ -42,9 +42,11 @@ hr {
 .entry { 
     display: flex; 
     gap: 20px; 
-    margin: 35px 0;  /* Increased margin for better spacing */
+    margin: 35px 0;
     align-items: flex-start;
     position: relative;
+    max-width: 800px;
+    margin-left: 100px; /* Add left margin to align timeline */
 }
 .timespan { 
     width: 90px; 
@@ -62,19 +64,18 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    padding-top: 8px;
 }
 
-/* Make timeline line continuous */
-.ico::before {
+/* Fix timeline line positioning */
+.ico::before { 
     content: "";
-    position: fixed;  /* Changed from absolute to fixed */
-    left: calc(50% - 1px);  /* Center the line */
-    top: 0;
-    height: 100%;
+    position: absolute;
+    left: 21px; /* Center of the ico div */
+    top: -24px;
+    bottom: -24px;
     width: 2px;
     background-color: #e5e7eb;
-    z-index: -1;  /* Put line behind content */
+    z-index: -1;
 }
 
 .entry-dot { 
@@ -204,15 +205,14 @@ hr {
     }
     
     .entry {
+        margin-left: 20px; /* Reduce margin on mobile */
         margin: 20px 0;
         gap: 15px;
     }
 
     .timespan {
-        width: 70px;
-        flex: 0 0 70px;
-        font-size: 14px;
-        padding-top: 2px;
+        width: 60px;
+        flex: 0 0 60px;
     }
 
     .ico {
@@ -225,10 +225,8 @@ hr {
         height: 32px;
     }
 
-    /* Maintain timeline on mobile */
     .ico::before {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 18px; /* Adjust for smaller ico width on mobile */
     }
 
     /* Adjust text alignment and spacing */
