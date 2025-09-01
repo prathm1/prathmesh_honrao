@@ -63,7 +63,8 @@ ul.nodot li { margin:6px 0; }
   #header .ppic { width:120px; height:120px; }
 }
 
-/* Fix timeline for mobile */
+/* Remove the problematic timeline code first */
+/* Delete or comment out these blocks:
 .entry {
     position: relative;
     z-index: 1;
@@ -74,7 +75,6 @@ ul.nodot li { margin:6px 0; }
     z-index: 2;
 }
 
-/* Make timeline continuous */
 #history::before {
     content: '';
     position: absolute;
@@ -84,4 +84,34 @@ ul.nodot li { margin:6px 0; }
     background-color: #e0e0e0;
     height: 100%;
     z-index: 0;
+}
+*/
+
+/* Add these new styles */
+/* Force vertical layout for education entries */
+#history .entry {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* Left align all bullet points and their content */
+.desc ul {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 25px;
+    margin: 10px 0;
+}
+
+.desc ul li {
+    text-align: left;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+/* Ensure timeline elements stay aligned */
+.ico::before {
+    left: 50%;
+    transform: translateX(-50%);
 }
