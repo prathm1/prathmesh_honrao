@@ -57,18 +57,22 @@ hr {
     width: 42px; 
     flex: 0 0 42px; 
     position: relative; 
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;  /* Increased gap between dot and logo */
+    align-items: center; 
+    padding-top: 8px; /* Add some top padding */
 }
 .ico::before { 
     content: ""; 
     position: absolute; 
     left: 50%; 
-    top: -24px; 
+    top: 0;
     bottom: -24px; 
     width: 2px; 
     background: #e5e7eb; 
     transform: translateX(-50%); 
+    z-index: 0;
 }
 .entry-dot { 
     width: 10px; 
@@ -150,16 +154,17 @@ hr {
 }
 
 .ico img {
-    width: 32px;  /* Fixed width for all company/institution logos */
-    height: 32px; /* Fixed height for all company/institution logos */
-    object-fit: contain; /* This maintains the logo's aspect ratio */
-    margin: auto;
+    width: 38px;  /* Increased from 32px */
+    height: 38px; /* Increased from 32px */
+    object-fit: contain;
     display: block;
+    position: relative;
+    z-index: 2;
 }
 
-/* Specific adjustments if needed for certain logos */
+/* Specific adjustments for education logos */
 .ico img[alt="SPPU"], 
 .ico img[alt="IGNOU"] {
-    width: 28px;  /* Slightly smaller for education logos if desired */
-    height: 28px;
+    width: 34px;  /* Increased from 28px */
+    height: 34px; /* Increased from 28px */
 }
