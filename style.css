@@ -31,6 +31,14 @@ hr { border:0; border-top:1px solid #e5e7eb; margin:30px 0; }
   margin: 6px 0;              /* keep a little vertical rhythm */
 }
 
+/* === Force left-align for timeline content === */
+#history .desc {
+  text-align: left;
+}
+#history .desc ul {
+  text-align: left;
+  margin-left: 1rem;
+}
 
 /* === Experience Photos === */
 .xp-photos { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin:12px 0 4px; }
