@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Data Migration Case Study | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <style>
+        body {
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+            color: #111;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+          max-width: 900px;
+          margin: auto;
+        }
+        h1, h2, h3 {
+          color: #1a1a1a;
+        }
+        hr {
+          border: none;
+          border-top: 1px solid #ccc;
+          margin: 40px 0;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          font-size: 15px;
+        }
+        th, td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: left;
+        }
+        th {
+          background-color: #f8f8f8;
+        }
+        img {
+          max-width: 100%;
+          margin: 20px 0;
+          border-radius: 8px;
+        }
+      </style>
+</head>
+<body>
+<div class="container">
+<a href="../../index.html">← Back to Home</a>
+<h1>Data Migration for a Large Insurance Company in the Netherlands</h1>
+<p><strong>Duration:</strong> Multi-phase rollout over 2 years</p>
+<p><strong>Role:</strong> Lead – Data Migration Workstream</p>
+<p><strong>Technologies:</strong> COBOL, DB2, IMS, VSAM, Oracle, MS SQL Server, Java, Bash, Python, FTP, SQL*Loader</p>
+<hr/>
+<h2>Overview</h2>
+<p>
+      As part of a large-scale mainframe modernization initiative, I led the end-to-end data migration workstream 
+      for a major insurance provider in the Netherlands. This transformation involved the migration of legacy 
+      systems—COBOL, DB2, IMS, and VSAM—to modern x86 infrastructure using Java, Oracle, and MS SQL Server.
+    </p>
+<p>
+      My work encompassed everything from architecture and planning to automation, testing, and go-live execution 
+      across 170 applications and three LPARs—transferring over 2500 GB of production data while ensuring accuracy,
+      integrity, and audit traceability.
+    </p>
+<img alt="Data Migration Pipeline Diagram" src="nn_data_pipeline.png"/>
+<img alt="Validation Model Diagram" src="nn_validation_model.png"/>
+<hr/>
+<h2>My Responsibilities</h2>
+<ul>
+<li>Architected the entire data migration pipeline from mainframe to Oracle/MS SQL</li>
+<li>Developed Python and Bash scripts for DB2 to Oracle DDL conversion</li>
+<li>Automated DB2 data unload using VSAM Utility and configured high-performance unload jobs</li>
+<li>Built repeatable pipelines for data movement via FTP and NFS-mounted migration servers</li>
+<li>Designed a 3-layer data validation strategy: row count, SHA-256 hash matching, and deep diff</li>
+<li>Handled special data types: LOBs, CLOBS, BLOBS, and improperly stored XML</li>
+<li>Created Oracle format files and SQL*Loader jobs to load data with high performance</li>
+<li>Built dashboards and log pipelines for audit, QA, and client review</li>
+</ul>
+<hr/>
+<h2>Challenges &amp; Solutions</h2>
+<table>
+<tr>
+<th>Issue</th>
+<th>Root Cause</th>
+<th>Solution</th>
+</tr>
+<tr>
+<td>Inconsistent Date Format</td>
+<td>Assembler intercept on DB2 inserted dates in DDMMYY format</td>
+<td>Developed custom Oracle function + query layer logic to reformat dates before insertion</td>
+</tr>
+<tr>
+<td>Encoding Corruption</td>
+<td>Improper EBCDIC → UTF-8 conversion introduced special characters</td>
+<td>Moved conversion to mainframe-side using DSN Utility for clean encoding</td>
+</tr>
+<tr>
+<td>Sort Order Mismatch</td>
+<td>Mainframe vs. Oracle sort behavior differed without ORDER BY clause</td>
+<td>Asked developers to include explicit ORDER BY clauses to mitigate discrepancies</td>
+</tr>
+<tr>
+<td>Junk Characters in LOB/XML</td>
+<td>Character data stored in binary/LOB columns on DB2</td>
+<td>Implemented cleansing logic using staging server and validation rules before Oracle load</td>
+</tr>
+</table>
+<hr/>
+<h2>Validation Strategy</h2>
+<p>
+      I implemented a rigorous 3-step validation framework to ensure accurate and auditable data migration:
+    </p>
+<ol>
+<li><strong>Row Count Matching</strong>: between source unload, transferred file, and Oracle load.</li>
+<li><strong>SHA-256 Fingerprint Validation</strong>: for each dataset at unload, transfer, and post-load stages.</li>
+<li><strong>Conditional Deep Comparison</strong>: only run if hash mismatch occurred, pinpointed row/column differences.</li>
+</ol>
+<p>
+      This strategy helped reduce unnecessary full-file comparisons while maintaining high confidence 
+      and compliance with audit policies.
+    </p>
+<img alt="IMG EB16CD62-506C-4F29-8B4A-AAA5058DEC75 cleaned" src="IMG_EB16CD62-506C-4F29-8B4A-AAA5058DEC75_cleaned.jpg"/><img alt="IMG 21EB7982-B371-47C6-841B-4C4CADD4ABCE cleaned" src="IMG_21EB7982-B371-47C6-841B-4C4CADD4ABCE_cleaned.jpg"/><img alt="IMG DCCF0B5A-E185-4300-9103-ACAE7E59CCB2 cleaned" src="IMG_DCCF0B5A-E185-4300-9103-ACAE7E59CCB2_cleaned.jpg"/><img alt="IMG FEA7506B-1058-48E9-BE9A-4D4934E91EED cleaned" src="IMG_FEA7506B-1058-48E9-BE9A-4D4934E91EED_cleaned.jpg"/><img alt="IMG 06F66020-FCD6-4355-984E-2617D2789B57 cleaned" src="IMG_06F66020-FCD6-4355-984E-2617D2789B57_cleaned.jpg"/><img alt="IMG E5002EA7-1A3E-47E1-A1FB-BAE1631BC233 cleaned" src="IMG_E5002EA7-1A3E-47E1-A1FB-BAE1631BC233_cleaned.jpg"/><img alt="IMG F2A33DF7-EE4F-4247-9FE7-0615E6DA21E5 cleaned" src="IMG_F2A33DF7-EE4F-4247-9FE7-0615E6DA21E5_cleaned.jpg"/><img alt="IMG 583AEBF5-46E6-46BB-950E-4A35F4553AAC cleaned" src="IMG_583AEBF5-46E6-46BB-950E-4A35F4553AAC_cleaned.jpg"/><hr/>
+<h2>Results</h2>
+<ul>
+<li>Successful migration of 2500+ GB of production data</li>
+<li>Three major go-lives completed across LPARs without incident</li>
+<li>Audit-approved logs and artifacts produced for every data movement</li>
+<li>Reusable tooling created for use in future mainframe exit programs</li>
+<li>Database performance tuning and index optimization post-migration</li>
+</ul>
+<hr/>
+<h2>Lessons Learned</h2>
+<p>
+      Legacy modernization is not just about converting data formats—it’s about understanding how old systems worked 
+      in production, and creating solutions that preserve business logic and performance behavior. Most importantly, 
+      migration must be auditable and repeatable.
+      Also it is not just about COBOL to JAVA conversion, or DB2 to Oracle migration, these are the tip of an iceberg. 
+      The real challenge lies in the details: data formats, encoding issues, sort orders, and special data types like LOBs and XML.
+      Also in the related integration points like assembers, custom implementaiton, batch jobs, schedulers , End user Developed Applications, etc.
+    </p>
+<p>
+      This project taught me how to think beyond code—to architect systems, lead teams, and deliver on timelines 
+      where both performance and integrity are non-negotiable.
+    </p>
+<br/><br/>
+<a href="../../index.html">← Back to Home</a>
+</div>
+</body>
+</html>
 
