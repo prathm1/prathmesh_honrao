@@ -207,19 +207,30 @@ hr {
 
 /* === Experience Photos === */
 .xp-photos { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+    justify-content: start;
 }
 
 .xp-photos img { 
-    width: 100%;
-    height: 180px;  /* Fixed height */
-    object-fit: contain;  /* Changed from cover to contain */
-    border-radius: 8px; 
-    border: 1px solid #e5e7eb;
-    background: #f8f8f8;  /* Light background for images */
+    max-width: 180px;
+    height: auto;
+    border-radius: 6px;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.xp-photos img:hover {
+    transform: scale(1.05);
+}
+
+/* Creative layout for multiple images */
+.xp-photos.multi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
 }
 
 /* Single image adjustments */
