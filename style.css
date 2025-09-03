@@ -209,21 +209,31 @@ hr {
 .xp-photos { 
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     margin-top: 15px;
-    justify-content: start;
 }
 
 .xp-photos img { 
-    max-width: 180px;
-    height: auto;
-    border-radius: 6px;
-    transition: transform 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 160px;  /* Fixed width */
+    height: 120px; /* Fixed height */
+    object-fit: cover; /* Maintains aspect ratio without skewing */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.xp-photos img:hover {
-    transform: scale(1.05);
+/* For multiple images in a row */
+.xp-photos.multi-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .xp-photos img {
+        width: 140px;
+        height: 105px;
+    }
 }
 
 /* Creative layout for multiple images */
