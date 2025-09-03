@@ -1,52 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <a href="../../index.html">← Back to Home</a>
-  <title>Mainframe Discovery at a Global Insurance Firm | Prathmesh Honrao</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../style.css">
+    <meta charset="utf-8"/>
+    <title>Mainframe Discovery at Global Insurance in Japan | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <style>
+        body {
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+            color: #111;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        .tech-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="container">
+<div class="container">
     <a href="../../index.html">← Back to Home</a>
-    <h1>COBOL → Java Modernization</h1>
-    <p><strong>Client:</strong> Leading Automotive & Insurance Enterprises</p>
-    <p><strong>Tools:</strong> Innowake, TruNorth AI-Hub, Jobol, Java, Maven</p>
+    <h1>Mainframe Discovery for Global Insurance in Japan</h1>
+    <p><strong>Duration:</strong> 3 months</p>
+    <p><strong>Role:</strong> Lead Discovery Consultant</p>
+    <p><strong>Technologies:</strong> COBOL, DB2 z/OS, VSAM, JCL, Stored Procedures, Oracle Cloud (OCI), AWS Sizing, Bash, Excel Macros</p>
 
-    <div class="project-detail">
-      <h2>Overview</h2>
-      <p>Refactored complex COBOL codebases to modular Java using Innowake tooling. Ensured 100% functional equivalence and improved maintainability using best practices and customized runtime optimization.</p>
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        As part of a strategic partnership, I led the mainframe application discovery and mining project for a major insurance provider in Japan — 
+        a legacy-rich enterprise with decades of COBOL and DB2-based systems.
+    </p>
 
-      <h2>Challenges</h2>
-      <ul>
-        <li>Legacy constructs not compatible with standard refactoring tools</li>
-        <li>Hidden business rules embedded in procedural flows</li>
-        <li>Precision loss in numeric calculations</li>
-      </ul>
+    <h3>Our goals:</h3>
+    <ul>
+        <li>Understand the current application landscape</li>
+        <li>Audit both source code and database layers</li>
+        <li>Quantify modernization readiness</li>
+        <li>Propose a robust, cloud-aligned target architecture</li>
+    </ul>
 
-      <h2>Approach</h2>
-      <ul>
-        <li>Built golden test case COBOL programs to validate tool behavior</li>
-        <li>Used TruNorth for control-flow discovery and transformation mapping</li>
-        <li>Worked with clients to validate outputs in Maven + JUnit environments</li>
-      </ul>
+    <h3>Analysis Scope:</h3>
+    <ul>
+        <li>COBOL source code</li>
+        <li>Complexity metrics</li>
+        <li>Database DDLs</li>
+        <li>Stored Procedures</li>
+        <li>Business logic in exits</li>
+        <li>Application structure and integration points</li>
+    </ul>
 
-      <h2>Results</h2>
-      <ul>
-        <li>40–60% faster PoC delivery cycles</li>
-        <li>80% reduction in legacy maintenance cost projection</li>
-        <li>Increased client confidence in automated modernization</li>
-      </ul>
+    <hr/>
+    <h2>Key Findings</h2>
+    <table>
+        <tr>
+            <th>Area</th>
+            <th>Observation</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>COBOL Codebase</td>
+            <td>~80% of programs contained unused or duplicated logic</td>
+            <td>Increased complexity, performance degradation, migration bloat</td>
+        </tr>
+        <tr>
+            <td>Incremental Coding Style</td>
+            <td>Programmers appended new logic rather than editing existing code</td>
+            <td>Massive technical debt; bloated modules with layered legacy logic</td>
+        </tr>
+        <tr>
+            <td>Commenting Out Logic</td>
+            <td>Rollback strategy relied on commenting out new code</td>
+            <td>Inactive code cluttered the base, confused static analysis</td>
+        </tr>
+        <tr>
+            <td>Stored Procedures</td>
+            <td>Many SPs performed business logic + embedded dynamic SQL</td>
+            <td>Refactoring needed into Java service layers</td>
+        </tr>
+        <tr>
+            <td>Database Design</td>
+            <td>Redundant indexes, absence of constraints, naming inconsistencies</td>
+            <td>Suggested normalization, indexing, and refactoring strategies</td>
+        </tr>
+    </table>
 
-      <h2>Lessons Learned</h2>
-      <p>Automated refactoring is most effective when paired with deep domain understanding. Even the best tools need guardrails to align with business intent.</p>
-      <a href="../../index.html">← Back to Home</a>
-
+    <hr/>
+    <h2>Approach</h2>
+    <div class="tech-section">
+        <h3>Static Analysis</h3>
+        <ul>
+            <li>Total LoC</li>
+            <li>Nested IF/EVALUATE levels</li>
+            <li>Dead/duplicate code patterns</li>
+            <li>Copybook usage statistics</li>
+        </ul>
     </div>
-  </div>
 
+    <div class="tech-section">
+        <h3>Manual Review</h3>
+        <ul>
+            <li>JCL job flows</li>
+            <li>Schedulers, FTP pipelines</li>
+            <li>Custom assembler logic</li>
+        </ul>
+    </div>
+
+    <div class="tech-section">
+        <h3>Mapping Created</h3>
+        <ul>
+            <li>Module ↔ Copybook</li>
+            <li>Program ↔ Table</li>
+            <li>JCL ↔ Batch Schedule</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Target Architecture Recommendations</h2>
+    <p><strong>Target Cloud:</strong> AWS (EC2, Aurora PostgreSQL, Lambda, CloudWatch)</p>
+
+    <h3>Tooling:</h3>
+    <ul>
+        <li><strong>Code:</strong> Innowake for refactoring COBOL to Java</li>
+        <li><strong>Data:</strong> AWS DMS for bulk loads, Oracle GoldenGate for sync</li>
+        <li><strong>Infra-as-Code:</strong> Terraform templates</li>
+        <li><strong>Sizing:</strong> Service-by-service cost and config estimates using existing LPAR CPU/memory metrics</li>
+    </ul>
+
+    <hr/>
+    <h2>Lessons Learned</h2>
+    <ul>
+        <li>Dead code = dead weight. It needs early and automated detection.</li>
+        <li>Cultural practices (e.g., non-destructive coding) drastically impact modernization.</li>
+        <li>Stored procedures need thorough behavioral mapping — they often contain the real logic.</li>
+        <li>Always give the client a visual blueprint. Most don't know the full picture of their estate.</li>
+        <li>Discovery is both technical and strategic. The report should enable decision-making.</li>
+    </ul>
+
+    <hr/>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+        <li>COBOL & DB2 static analysis</li>
+        <li>Legacy → Modern cloud target architecture design</li>
+        <li>Client presentations and storytelling</li>
+        <li>Business logic extraction from SPs and exits</li>
+        <li>Migration tool selection and sizing</li>
+        <li>Documentation and visual communication</li>
+    </ul>
+
+    <hr/>
+    <h2>Discovery Project Checklist</h2>
+    <ul>
+        <li>✅ Map dead code and duplication early</li>
+        <li>✅ Lineage: program ↔ copybook ↔ table</li>
+        <li>✅ DB inventory: SPs, UDFs, triggers, views</li>
+        <li>✅ Sizing from LPAR + usage reports</li>
+        <li>✅ Understand batch schedule and job dependencies</li>
+        <li>✅ Complexity tiers per program</li>
+        <li>✅ Recommend tools per use case</li>
+        <li>✅ SME walkthroughs to validate assumptions</li>
+        <li>✅ Provide call graphs, architecture diagrams, KPIs</li>
+    </ul>
+</div>
 </body>
 </html>
-
