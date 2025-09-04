@@ -1,1 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Database Discovery Case Study | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <style>
+        body {
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+            color: #111;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        .tech-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../../index.html">← Back to Home</a>
+    <h1>Mainframe Discovery for a Leading Danish Insurance Company</h1>
+    <p><strong>Duration:</strong> 4 months</p>
+    <p><strong>Role:</strong> Lead – Database Discovery & Modernization Strategy</p>
+    <p><strong>Technologies:</strong> DB2 z/OS, VSAM, JCL, COBOL, Assembler, Azure SQL, Java, Microservices, Event-driven Architecture</p>
+
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        A major insurance provider in Denmark engaged our team to perform a comprehensive discovery of their large-scale mainframe installation. 
+        The client's estate spanned multiple LPARs, hosting mission-critical insurance applications across COBOL, DB2, and VSAM systems.
+    </p>
+
+    <h3>Objectives:</h3>
+    <ul>
+        <li>Audit the existing system landscape (applications, databases, batch jobs)</li>
+        <li>Identify modernization blockers</li>
+        <li>Suggest a future-ready architecture on cloud</li>
+    </ul>
+
+    <hr/>
+    <h2>Key Focus Areas</h2>
+    <ul>
+        <li>Complete DB2 DDL inventory and data model evaluation</li>
+        <li>Deep analysis of stored procedures, UDFs, and assembler exits</li>
+        <li>Understanding and documenting batch job chains and dependencies</li>
+        <li>Mapping COBOL modules to underlying data access logic</li>
+        <li>Developing a modernization plan aligned with Azure SQL and event-driven principles</li>
+    </ul>
+
+    <hr/>
+    <h2>Findings Summary</h2>
+    <table>
+        <tr>
+            <th>Area</th>
+            <th>Observation</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>DB2 Stored Procedures</td>
+            <td>Heavy use of business logic inside SPs and UDFs</td>
+            <td>Required modularization for replatforming into microservices</td>
+        </tr>
+        <tr>
+            <td>Assembler Exits</td>
+            <td>Custom DB2 intercept logic embedded at various access points</td>
+            <td>Non-portable and undocumented; required decommission or refactoring plan</td>
+        </tr>
+        <tr>
+            <td>Batch Processing</td>
+            <td>Nightly batch jobs transferring high-volume data through chains of JCL jobs</td>
+            <td>Needed transformation into event-driven, cloud-native equivalents</td>
+        </tr>
+        <tr>
+            <td>VSAM & Legacy Files</td>
+            <td>Thousands of files read/written via COBOL/FTP</td>
+            <td>Phased migration proposed using API gateways and object storage</td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2>Proposed Target Architecture</h2>
+    <div class="tech-section">
+        <h3>Core Components</h3>
+        <ul>
+            <li><strong>Database:</strong> Azure SQL PaaS as the target for DB2 workloads</li>
+            <li><strong>Data Movement:</strong> Azure Data Factory pipelines + SSIS integration</li>
+            <li><strong>Application Layer:</strong> Java-based microservices hosted on Azure App Services</li>
+            <li><strong>Inter-process Communication:</strong> Azure Service Bus for batch-to-event translation</li>
+            <li><strong>Monitoring & Audit:</strong> Azure Monitor and Log Analytics</li>
+        </ul>
+    </div>
+
+    <div class="tech-section">
+        <h3>Migration Strategy</h3>
+        <ul>
+            <li>Modularize SPs and logic-heavy DB objects</li>
+            <li>Decommission assembler exits after behavior replication</li>
+            <li>Replace file-based FTP flows with APIs and storage containers</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>My Contributions</h2>
+    <ul>
+        <li>Created a comprehensive inventory of DB2 objects including SPs, UDFs, tables, and indexes</li>
+        <li>Mapped existing data access logic to modernization-ready service blueprints</li>
+        <li>Documented assembler exit logic and identified modernization blockers</li>
+        <li>Proposed phased migration plan for batch processing and file transfers</li>
+        <li>Designed a target state architecture and authored the data modernization playbook</li>
+    </ul>
+
+    <hr/>
+    <h2>Lessons Learned</h2>
+    <div class="tech-section">
+        <ul>
+            <li>💡 Stored procedures often encapsulate more business logic than assumed — refactoring them requires functional dissection.</li>
+            <li>🧩 Assembler exits may have business-critical behavior, often undocumented — demand early attention in discovery.</li>
+            <li>⏱ Batch jobs are tightly coupled to business SLAs — modernization needs to consider scheduling windows and data cut-offs.</li>
+            <li>🧱 Modularity is key — break monoliths early into loosely coupled, domain-driven components.</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+        <li>DB2 database modeling and legacy system reverse engineering</li>
+        <li>Cloud data migration planning (DB2 → Azure SQL)</li>
+        <li>Target architecture design and modernization roadmapping</li>
+        <li>Technical documentation for client and internal engineering teams</li>
+    </ul>
+
+    <hr/>
+    <h2>Discovery Checklist</h2>
+    <div class="tech-section">
+        <ul>
+            <li>✅ Extract and categorize all DB2 assets (tables, indexes, SPs, UDFs, views)</li>
+            <li>✅ Analyze assembler exits — identify hooks and business dependencies</li>
+            <li>✅ Inventory batch jobs — map runtime, dependencies, and batch windows</li>
+            <li>✅ Map data access across COBOL programs and job chains</li>
+            <li>✅ Recommend modernization strategies per DB object type</li>
+            <li>✅ Define target database configurations based on usage patterns</li>
+            <li>✅ Create documentation for audit, QA, and handoff</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Conclusion</h2>
+    <p>
+        This engagement reinforced the importance of looking beyond just application code when planning a mainframe exit. 
+        Stored procedures, assembler exits, and legacy batch flows hold significant functional and operational weight that 
+        must be discovered, evaluated, and transformed thoughtfully.
+    </p>
+    <p>
+        My work contributed directly to helping this client establish a reliable foundation for their modernization journey — 
+        from mainframe to modular, from procedural to cloud-native.
+    </p>
+</div>
+</body>
+</html>
 
