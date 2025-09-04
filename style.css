@@ -211,15 +211,14 @@ hr {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
-    justify-content: flex-start;  /* ensures left alignment */
 }
 
 .xp-photos img { 
-    width: 160px;  /* Fixed width */
-    height: 120px; /* Fixed height */
-    object-fit: cover; /* Maintains aspect ratio without skewing */
+    width: 120px;
+    height: auto;        /* Changed from fixed height to auto */
+    max-height: 160px;   /* Added max-height for portrait images */
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    object-fit: contain; /* Changed from cover to contain */
 }
 
 /* For multiple images in a row */
