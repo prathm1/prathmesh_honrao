@@ -401,17 +401,15 @@ hr {
 }
 
 /* Add or update the education images styling */
-#education .images img {
-    max-width: 200px;  /* Limits maximum width */
-    height: auto;      /* Maintains aspect ratio */
-    margin: 10px;      /* Adds spacing between images */
-    border-radius: 4px; /* Optional: adds slight rounding to corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
+.desc .images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-    #education .images img {
-        max-width: 150px;
-    }
+.desc .images img {
+    width: 120px;  /* Same as xp-photos */
+    height: 120px; /* Same as xp-photos */
+    border-radius: 4px;
 }
