@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Mainframe POC Stored Procedure Modernization for German Automobile Company | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <style>
+        body {
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+            color: #111;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        .tech-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../../index.html">← Back to Home</a>
+    <h1>Mainframe Modernization POC for a Global Automotive Manufacturer</h1>
+    <p><strong>Duration:</strong> 2-3 months</p>
+    <p><strong>Role:</strong> Technical Lead – Database Migration, Coordination, Documentation</p>
+    <p><strong>Client:</strong> Global Automobile Brand (Germany)</p>
+    <p><strong>Scope:</strong> 2 critical mainframe applications with business logic in COBOL stored procedures</p>
+    <p><strong>Focus Areas:</strong> COBOL-to-Java migration, Innowake tooling, Dockerized DB2 environment, AI-accelerated documentation</p>
+
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        This Proof of Concept (POC) engagement aimed to demonstrate the feasibility of modernizing two mainframe applications 
+        owned by a global automotive giant. These applications relied heavily on COBOL-based stored procedures in DB2 z/OS, 
+        where the business logic was deeply embedded in the database layer.
+    </p>
+
+    <h3>Objectives:</h3>
+    <ul>
+        <li>Refactor COBOL stored procedures into Java using Innowake tooling</li>
+        <li>Set up a testing environment using Docker-based DB2 LUW containers</li>
+        <li>Validate functional correctness through unit tests, inserts, and updates</li>
+        <li>Deliver a comprehensive discovery and mining report detailing the process, observations, and next steps</li>
+    </ul>
+
+    <hr/>
+    <h2>Migration Approach</h2>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Extracted COBOL stored procedures (STPs) from DB2 z/OS</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Applied Innowake 1:1 transformation to generate Java equivalents</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Developed thin Java wrappers to maintain interface compatibility</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Deployed the transformed Java code in a local DB2 LUW Docker image</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Executed unit and functional test cases to validate correctness and integration</td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2>Outcomes & Results</h2>
+    <div class="tech-section">
+        <ul>
+            <li>✅ Full functional parity was achieved between COBOL STPs and the generated Java versions.</li>
+            <li>✅ Client engineers performed independent UAT and confirmed that data insert/update operations were successful.</li>
+            <li>✅ The Java code (aka Jobol) was seen as highly readable and close to their internal Google-style standards.</li>
+            <li>✅ Demonstrated the feasibility of setting up a factory model for high-volume STP migration.</li>
+            <li>✅ Generated client trust in the transformation pipeline's speed, reliability, and maintainability.</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>My Contributions</h2>
+    <ul>
+        <li>Acted as end-to-end technical bridge between the client, Deloitte India delivery team, and the Innowake engineering team.</li>
+        <li>Led the DB2 LUW environment setup via Docker on local and client infrastructure for testing and demonstration.</li>
+        <li>Provided in-depth DB2 technical support, explaining runtime behavior, limitations, and conversion quirks.</li>
+        <li>Created a customized discovery and mining report:
+            <ul>
+                <li>Captured the current COBOL logic and the transformed Java logic</li>
+                <li>Detailed test results, mappings, and tool behavior</li>
+                <li>Included actionable next steps and improvement areas</li>
+            </ul>
+        </li>
+        <li>Leveraged AI tools (ChatGPT) to accelerate documentation, summarize transformations, and present findings clearly.</li>
+        <li>Led the AI walkthrough session during client demo, showcasing future roadmap opportunities.</li>
+    </ul>
+
+    <hr/>
+    <h2>Lessons Learned</h2>
+    <div class="tech-section">
+        <ul>
+            <li>COBOL stored procedures that encapsulate business logic are prime candidates for 1:1 refactoring using Innowake or similar tooling.</li>
+            <li>Dockerized DB2 LUW environments offer a lightweight, replicable setup for local transformation validation.</li>
+            <li>Java wrappers need to maintain interface parity with calling programs to avoid downstream changes.</li>
+            <li>Client confidence builds quickly when they are given transformed code that works within 2–3 weeks.</li>
+            <li>AI tools can drastically improve speed, structure, and impact of technical documentation.</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+        <li>Legacy STP analysis (COBOL, DB2 z/OS)</li>
+        <li>Innowake tool usage and post-processing</li>
+        <li>Java transformation logic and testing</li>
+        <li>Docker containerization and DB2 environment setup</li>
+        <li>Technical coordination between distributed teams</li>
+        <li>Report writing and AI-assisted documentation</li>
+        <li>Client presentation and demo delivery</li>
+    </ul>
+
+    <hr/>
+    <h2>POC Checklist</h2>
+    <div class="tech-section">
+        <ul>
+            <li>✅ Assess where the real business logic lives — inside COBOL or stored procedures</li>
+            <li>✅ Plan for 1:1 migration tooling that supports procedural DB logic</li>
+            <li>✅ Use containerized DB2 LUW setup to isolate issues and speed up feedback</li>
+            <li>✅ Validate insert/update/test cases early with client</li>
+            <li>✅ Generate mapping tables and traceability docs alongside code</li>
+            <li>✅ Keep a lean scope, but deliver a visibly working result</li>
+            <li>✅ Use AI tools for discovery, report generation, and documentation acceleration</li>
+            <li>✅ Leave client with a clear understanding of next steps and expansion path</li>
+        </ul>
+    </div>
+
+    <div class="footer-nav">
+        <a href="../../index.html">← Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
 

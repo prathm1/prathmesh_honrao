@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Mainframe Development Case Study | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <style>
+        body {
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+            color: #111;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        .tech-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../../index.html">← Back to Home</a>
+    <h1>Mainframe Application Development for a U.S.-based Medicaid Insurance Provider</h1>
+    <p><strong>Duration:</strong> ~2 years</p>
+    <p><strong>Role:</strong> COBOL Developer (Application Development – Batch Systems)</p>
+    <p><strong>Client:</strong> Major U.S. Medicaid & Health Insurance Provider</p>
+    <p><strong>Employer:</strong> Accenture (Hyderabad Delivery Center)</p>
+    <p><strong>Tech Stack:</strong> COBOL, JCL, DB2 for z/OS, VSAM, Endevor, File-Aid</p>
+
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        This project marked my first professional engagement in mainframe technologies, where I was involved in the 
+        end-to-end development of a critical batch-processing application for a U.S.-based Medicaid and health 
+        insurance giant.
+    </p>
+    <p>
+        The client managed large volumes of member, provider, and claims data across multiple U.S. states. The goal 
+        of this initiative was to automate key Medicaid claims processing functions and reduce the dependency on 
+        manual workflows, improving compliance and throughput.
+    </p>
+    <p>
+        I was part of a distributed Agile team and took ownership of several use cases from design to implementation.
+    </p>
+
+    <hr/>
+    <h2>Responsibilities & Work Items</h2>
+    <table>
+        <tr>
+            <th>Area</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Requirements</td>
+            <td>Participated in daily standups, clarified user stories with U.S. onshore leads</td>
+        </tr>
+        <tr>
+            <td>Design</td>
+            <td>Converted functional stories into technical design specs (TDS)</td>
+        </tr>
+        <tr>
+            <td>Development</td>
+            <td>
+                <ul>
+                    <li>Core logic in COBOL (file handling, conditional processing)</li>
+                    <li>DB2 DML integration for select, update, and insert</li>
+                    <li>JCL setup for batch jobs, restarts, and scheduling</li>
+                    <li>Parameterization using SYSIN & COND logic</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Testing</td>
+            <td>
+                <ul>
+                    <li>Performed unit testing using test JCLs + File-Aid</li>
+                    <li>Created stubs, mock input files</li>
+                    <li>Verified DB updates and downstream triggers</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Deployment</td>
+            <td>Code promotion via Endevor to higher environments</td>
+        </tr>
+        <tr>
+            <td>Support</td>
+            <td>Peer reviews, defect fixes, and code walkthroughs with QA</td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2>Sample Use Case Developed</h2>
+    <div class="tech-section">
+        <h3>Use Case: Automate claim rejection for eligibility mismatches</h3>
+        <ul>
+            <li><strong>Input:</strong> Member file (VSAM), claims extract (flat file)</li>
+            <li><strong>Output:</strong> Rejected claims (report file) + DB update to logging table</li>
+            <li><strong>COBOL module:</strong> Performed file matching, rule checks, and DB logging</li>
+            <li><strong>JCL:</strong> Defined multi-step batch job with restart logic and override capability</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Key Highlights</h2>
+    <ul>
+        <li>Wrote production-grade COBOL code that ran daily in batch mode for Medicaid operations</li>
+        <li>Delivered zero-defect code during SIT/UAT for all assigned modules</li>
+        <li>Became proficient in Endevor, File-Aid, and SPUFI/DB2 tooling</li>
+        <li>Got exposure to insurance data structures, such as member eligibility and claim adjudication rules</li>
+        <li>Developed mainframe debugging and log analysis skills (SYSOUT/SYSPRINT)</li>
+        <li>Collaborated closely with onshore counterparts and learned the nuances of Agile development in a legacy environment</li>
+    </ul>
+
+    <hr/>
+    <h2>Lessons Learned</h2>
+    <div class="tech-section">
+        <ul>
+            <li>Modularity is key: Designing reusable, well-structured COBOL subroutines makes maintenance easier.</li>
+            <li>Data accuracy matters: Even a small misalignment in flat files or a wrong key can cause batch failures.</li>
+            <li>Mainframe batch windows are sacred: Understanding job priorities, scheduling dependencies, and restart logic is crucial.</li>
+            <li>JCL skills are underrated: Effective JCL control can drastically reduce failure rates.</li>
+            <li>Legacy ≠ Obsolete: COBOL systems can be robust and high-performance when well designed.</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+        <li>Procedural programming in COBOL</li>
+        <li>DB2 SQL (static + embedded)</li>
+        <li>Batch job orchestration using JCL</li>
+        <li>File-based logic using VSAM and flat files</li>
+        <li>Unit testing using stubs and File-Aid</li>
+        <li>Agile-based development with story-based implementation</li>
+        <li>Version control and promotion using Endevor</li>
+    </ul>
+
+    <hr/>
+    <h2>Development Checklist</h2>
+    <div class="tech-section">
+        <ul>
+            <li>✅ Understand record layouts and file I/O handling in COBOL</li>
+            <li>✅ Always validate null indicators and DB2 return codes</li>
+            <li>✅ Use inline perform vs external calls wisely based on code reuse</li>
+            <li>✅ Document JCL restarts, overrides, and return codes clearly</li>
+            <li>✅ Proactively peer review for logic branching and boundary conditions</li>
+            <li>✅ Write SQLs with index usage and performance in mind</li>
+            <li>✅ Always validate output with sample data files end-to-end</li>
+        </ul>
+    </div>
+
+    <div class="footer-nav">
+        <a href="../../index.html">← Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
 

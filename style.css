@@ -384,23 +384,34 @@ hr {
 .cert-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 5px 0 20px 0;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+.cert-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-weight: 600;
 }
 
 .cert-table td {
-    padding: 6px 10px;
-    vertical-align: top;
-    font-size: 13px;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
 }
 
-.cert-table td:first-child {
-    font-weight: 500;
-    width: 40%;
+.cert-table tr:hover {
+    background: #f9f9f9;
 }
 
-.cert-table td:last-child {
-    color: #666;
-    font-size: 14px;
+@media (max-width: 768px) {
+    .cert-table {
+        font-size: 14px;
+    }
+    .cert-table td, .cert-table th {
+        padding: 8px;
+    }
 }
 
 /* Add or update the education images styling */
