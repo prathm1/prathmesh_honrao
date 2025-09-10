@@ -1,9 +1,8 @@
 /* === General Reset === */
 body { 
     margin: 0; 
-    font: 14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial; 
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial; 
     color: #111; 
-    background: #fff; 
 }
 .container { 
     max-width: 900px; 
@@ -29,11 +28,11 @@ hr {
     border: 2px solid #e5e7eb; 
 }
 #header h1 { 
-    margin: 12px 0 6px; 
-    font-size: 24px; 
+    margin: 15px 0 8px; 
+    font-size: 28px; 
 }
 #header h2 { 
-    font-size: 14px; 
+    font-size: 16px; 
     font-weight: 400; 
     color: #555; 
     margin: 0; 
@@ -60,7 +59,7 @@ hr {
     flex: 0 0 90px; 
     text-align: right; 
     padding-top: 0;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .ico { 
@@ -96,13 +95,13 @@ hr {
 
 .desc { 
     flex: 1;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
 }
 .desc ul { 
     list-style: disc; 
     padding-left: 25px;
-    margin: 8px 0;
+    margin: 10px 0;
     color: #333;
     text-align: left; 
 }
@@ -113,8 +112,8 @@ hr {
 
 /* Title styling */
 .desc strong {
-    font-size: 15px;
-    margin-bottom: 6px;
+    font-size: 17px;
+    margin-bottom: 8px;
     display: inline-block;
 }
 
@@ -126,9 +125,9 @@ hr {
 
 /* === Section Titles === */
 .ctitle { 
-    font-size: 20px; 
+    font-size: 22px; 
     font-weight: bold; 
-    margin: 30px 0;
+    margin: 35px 0;
     text-align: center;
     text-transform: uppercase;
     color: #333;
@@ -178,10 +177,10 @@ hr {
 .desc ul {
     list-style: disc;
     padding-left: 20px;
-    margin: 8px 0;
+    margin: 10px 0;
     text-align: left;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 /* === Projects === */
@@ -346,12 +345,13 @@ hr {
 }
 
 .ico img {
-    width: 48px;
-    height: 48px;
+    width: 48px;  /* Increased from smaller size */
+    height: 48px; /* Increased from smaller size */
     object-fit: contain;
     display: block;
     position: relative;
     z-index: 2;
+    border-radius: 8px;
 }
 
 /* Specific adjustments for education logos */
