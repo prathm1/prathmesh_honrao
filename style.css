@@ -551,3 +551,24 @@ section {
 .contact-wrapper {
     background-color: #ffffff;
 }
+
+/* Navigation styling */
+.nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.nav a.active {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
