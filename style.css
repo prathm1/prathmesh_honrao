@@ -558,17 +558,38 @@ section {
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 16px;
+    justify-content: center;  /* Center align items */
 }
 
 .nav a {
     text-decoration: none;
     color: #334155;
     border: 1px solid #e2e8f0;
-    padding: 6px 10px;
-    border-radius: 999px;
+    padding: 8px 16px;       /* Increased padding */
+    border-radius: 8px;      /* More rounded corners */
+    min-width: 100px;        /* Consistent width */
+    text-align: center;      /* Center text */
+    transition: all 0.2s;    /* Smooth hover effect */
+}
+
+.nav a:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
 }
 
 .nav a.active {
     background: #f1f5f9;
     border-color: #cbd5e1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav {
+        gap: 10px;
+    }
+    .nav a {
+        min-width: 80px;
+        padding: 6px 12px;
+    }
 }
