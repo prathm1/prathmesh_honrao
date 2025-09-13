@@ -5,8 +5,11 @@ body {
     color: #111; 
 }
 .container { 
-    max-width: 900px; 
-    margin: 0 auto; 
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
 }
 hr { 
     border: 0; 
@@ -524,4 +527,27 @@ hr {
 
 section {
     margin-bottom: 40px;
+}
+
+/* Add new wrapper classes */
+.section-wrapper {
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.header-wrapper {
+    background-color: #f8f9fa;
+}
+
+.projects-wrapper {
+    background-color: #ffffff;
+}
+
+.certs-wrapper {
+    background-color: #f8f9fa;
+}
+
+.contact-wrapper {
+    background-color: #ffffff;
 }
