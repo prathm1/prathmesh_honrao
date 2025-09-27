@@ -132,7 +132,7 @@ hr {
     font-weight: bold; 
     margin: 35px 0;
     text-align: center;
-    text-transform: none;  /* Remove uppercase transformation */
+    text-transform: none;  /* Remove if present */
     color: #333;
     margin-bottom: 40px;
 }
