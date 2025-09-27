@@ -620,7 +620,9 @@ section {
 .hobby-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;  /* Changed from 'cover' to 'contain' */
+    background: #f5f5f5;  /* Light background for images that don't fill space */
+    padding: 8px;        /* Add some padding around images */
 }
 
 .hobby-title {
