@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Mainframe Modernization & Java Migration Support | Prathmesh Honrao</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../../style.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <style>
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Tech Section Styling */
+        .tech-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../../index.html#projects">← Back to Home</a>
+
+    <h1>Mainframe Modernization & Java Migration Support for a Regulated Banking Platform</h1>
+    <p><strong>Duration:</strong> 4-month modernization and rule extraction engagement</p>
+    <p><strong>Role:</strong> Consultant – COBOL Analysis, Client Interaction, Rule Reconciliation, Java Mapping</p>
+    <p><strong>Scope:</strong> Refactoring of legacy COBOL logic into Java for BusinessPartner attribute delivery into EGP containers</p>
+    <p><strong>Focus Areas:</strong> Legacy rule mining, DIH field mapping, EGP integration, testing, and documentation</p>
+
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        A regulated banking platform initiated a modernization of its data provisioning process for core banking attributes by replacing
+        legacy DB2 UNLOAD-based pipelines with DIH-sourced, Java-transformed EGP containers. The modernization vision aimed to generate
+        Java purely from business definitions; however, the legacy COBOL programs contained critical, undocumented transformation logic,
+        SQL operations, and edge case handling that materially influenced downstream data consumers.
+    </p>
+    <p>
+        I supported the project by bridging these two realities: extracting the actual transformation behavior from COBOL, aligning it with
+        the client’s documented understanding, and enabling traceable and testable Java mapping. This ensured consistency across data,
+        logic, and integration points — reducing migration risk and avoiding silent behavioral drift.
+    </p>
+
+    <h3>The Goal:</h3>
+    <p>
+        Deliver clean, testable Java implementations of BusinessPartner attribute logic aligned with both client expectations and proven
+        legacy behavior, while supporting modern frameworks (DIH, EGP, Spring Boot).
+    </p>
+
+    <hr/>
+    <h2>Business & Technical Problems</h2>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Challenge</th>
+        </tr>
+        <tr>
+            <td>Undocumented Legacy Logic</td>
+            <td>COBOL programs contained transformation rules and edge cases not captured in business documentation</td>
+        </tr>
+        <tr>
+            <td>Data Pipeline Shift</td>
+            <td>Moving from DB2 UNLOAD pipelines to DIH sourcing required re-validating field availability and semantics</td>
+        </tr>
+        <tr>
+            <td>Behavioral Drift Risk</td>
+            <td>Java generated purely from business definitions risked deviating from production behavior used by downstream systems</td>
+        </tr>
+        <tr>
+            <td>Complex Field Derivations</td>
+            <td>Derived values depended on multi-step logic, SQL lookups, and conditional transformations</td>
+        </tr>
+        <tr>
+            <td>Testing Gaps</td>
+            <td>Without rule traceability, designing test cases and validating correctness was slow and error-prone</td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2>Solution Approach</h2>
+
+    <div class="tech-section">
+        <h3>1. Business Rule Extraction & Alignment</h3>
+        <p>Extracted transformation logic directly from legacy COBOL programs using tool-assisted parsing and manual review.</p>
+        <ul>
+            <li>Identified SQL operations, field-level logic, conditional branches, and derived values used in original pipelines</li>
+            <li>Mapped COBOL-derived logic to documented business rules and attribute definitions</li>
+            <li>Highlighted discrepancies and undocumented logic for client validation and sign-off</li>
+            <li>Documented reconciled rules to support Java implementation and test design</li>
+        </ul>
+    </div>
+
+    <div class="tech-section">
+        <h3>2. DIH & EGP Integration Support</h3>
+        <p>Aligned COBOL-derived logic with DIH-based sourcing strategy and EGP container design constraints.</p>
+        <ul>
+            <li>Validated field availability in DIH and identified gaps affecting legacy-equivalent behavior</li>
+            <li>Proposed provisioning options or fallback logic for missing/ambiguous attributes</li>
+            <li>Worked with data engineering and architecture teams to finalize mappings</li>
+            <li>Ensured output conformed to EGP container structures and downstream consumption expectations</li>
+        </ul>
+    </div>
+
+    <div class="tech-section">
+        <h3>3. Client Interaction & Rule Reconciliation Workshops</h3>
+        <p>Engaged directly with domain experts, architects, and Java developers to reconcile logic into an agreed implementation baseline.</p>
+        <ul>
+            <li>Conducted walkthroughs of extracted COBOL logic and its business implications</li>
+            <li>Led rule reconciliation sessions to agree on final transformations and edge case handling</li>
+            <li>Acted as mainframe SME in architectural discussions and delivery planning</li>
+            <li>Enabled faster decisions by translating legacy behavior into implementable Java requirements</li>
+        </ul>
+    </div>
+
+    <div class="tech-section">
+        <h3>4. Testing & Traceability Enablement</h3>
+        <p>Supported development and QA teams with traceable rule documentation and validation guidance.</p>
+        <ul>
+            <li>Helped define test cases and boundary scenarios based on reconciled rules</li>
+            <li>Provided traceability between: COBOL source → reconciled rule → Java mapping → expected output</li>
+            <li>Supported integration testing by explaining legacy behaviors and expected data outcomes</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Deliverables</h2>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>🧾 Rule Extraction Notes</td>
+            <td>Documented transformation logic extracted from COBOL, including SQL and derived value logic</td>
+        </tr>
+        <tr>
+            <td>🔁 Rule Reconciliation Pack</td>
+            <td>Side-by-side mapping of business definitions vs legacy behavior, including discrepancies and resolutions</td>
+        </tr>
+        <tr>
+            <td>🧩 DIH Field Mapping</td>
+            <td>Traceable mapping between DIH attributes and required BusinessPartner fields used in EGP containers</td>
+        </tr>
+        <tr>
+            <td>🧪 Test Scenario Inputs</td>
+            <td>Boundary cases and validation scenarios derived from legacy edge-case logic</td>
+        </tr>
+        <tr>
+            <td>📌 Implementation Guidance</td>
+            <td>Clarifications for Java developers to implement rules consistently and avoid behavioral drift</td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2>My Contributions</h2>
+    <ul>
+        <li>Led client discussions and workshops focused on rule clarity and transformation accuracy</li>
+        <li>Analyzed COBOL programs to extract complex business rules, SQL operations, and multi-step data manipulations</li>
+        <li>Mapped extracted rules to DIH field availability and validated gaps with architecture/data engineering teams</li>
+        <li>Supported Java developers with implementable mapping guidance and traceability for rules and edge cases</li>
+        <li>Supported QA with test scenario design rooted in reconciled legacy behavior</li>
+        <li>Provided onsite support for presentations, validation sessions, and integration testing activities</li>
+    </ul>
+
+    <hr/>
+    <h2>Lessons Learned</h2>
+    <div class="tech-section">
+        <ul>
+            <li>Modernization fails quietly when legacy edge cases are not surfaced early — rule mining must precede implementation.</li>
+            <li>Business documentation is necessary but not sufficient; production COBOL behavior often contains “hidden requirements”.</li>
+            <li>Traceability (COBOL → rule → Java → test) is the fastest path to confidence in regulated migrations.</li>
+            <li>Data sourcing migrations (UNLOAD → DIH) require semantic validation, not just field name mapping.</li>
+            <li>Workshops accelerate delivery when the mainframe SME translates legacy behavior into implementable requirements.</li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+        <li>COBOL code analysis and legacy logic interpretation</li>
+        <li>Business rule extraction, documentation, and traceability</li>
+        <li>SQL behavior analysis embedded in legacy programs</li>
+        <li>Client facilitation and rule reconciliation workshops</li>
+        <li>DIH field mapping and data sourcing alignment</li>
+        <li>EGP container integration support and output validation</li>
+        <li>Legacy-to-Java modernization collaboration (developers + QA)</li>
+    </ul>
+
+    <hr/>
+    <h2>Modernization Rule Mining Checklist</h2>
+    <div class="tech-section">
+        <ul>
+            <li>✅ Start with COBOL behavior mining before relying solely on business definitions</li>
+            <li>✅ Identify SQL operations and hidden transformations affecting downstream outputs</li>
+            <li>✅ Build traceability: source logic → reconciled rule → implementation → test case</li>
+            <li>✅ Validate DIH field availability and semantic equivalence (not just naming)</li>
+            <li>✅ Use reconciliation workshops to close gaps and obtain sign-off</li>
+            <li>✅ Design tests around edge cases, not only “happy path” scenarios</li>
+            <li>✅ Document assumptions and unresolved gaps explicitly for governance</li>
+            <li>✅ Ensure the final Java output matches EGP container contracts</li>
+        </ul>
+    </div>
+
+    <div class="footer-nav">
+        <a href="../../index.html#projects">← Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
