@@ -323,42 +323,47 @@ h3 {
 
 .word-cloud {
   position: relative;
-  min-height: 320px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem 0.9rem;
+  align-items: center;
+  min-height: 360px;
+  padding: 1rem;
   border: 1px solid rgba(18, 38, 32, 0.16);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.92);
-  overflow: hidden;
 }
 
 .word-cloud span {
-  position: absolute;
-  line-height: 1.05;
-  color: rgba(18, 38, 32, 0.7);
+  position: static;
+  line-height: 1.15;
+  color: rgba(18, 38, 32, 0.88);
   font-family: "IBM Plex Sans", sans-serif;
-  font-weight: 500;
-  white-space: nowrap;
+  font-weight: 600;
+  white-space: normal;
+  display: block;
 }
 
-.word-cloud .w1 { top: 10%; left: 5%; font-size: 1.45rem; color: #1e5b54; }
-.word-cloud .w2 { top: 8%; right: 9%; font-size: 1.2rem; color: #2f5f93; }
-.word-cloud .w3 { top: 36%; left: 6%; font-size: 1.23rem; color: #4a7051; }
-.word-cloud .w4 { top: 34%; right: 8%; font-size: 1.05rem; color: #6a5a9a; }
-.word-cloud .w5 { top: 66%; left: 14%; font-size: 1rem; color: #9a5b3a; }
-.word-cloud .w6 { top: 20%; left: 34%; font-size: 1rem; color: #2f6d66; }
-.word-cloud .w7 { top: 72%; right: 11%; font-size: 0.98rem; color: #4b6c97; }
-.word-cloud .w8 { top: 29%; left: 49%; font-size: 1rem; color: #46675c; }
-.word-cloud .w9 { top: 57%; left: 37%; font-size: 0.95rem; color: #835f2c; }
-.word-cloud .w10 { top: 6%; left: 44%; font-size: 0.9rem; color: #5f6c76; }
-.word-cloud .w11 { top: 46%; left: 23%; font-size: 1.08rem; color: #365f91; }
-.word-cloud .w12 { top: 50%; left: 52%; font-size: 1.12rem; color: #2f5a54; }
-.word-cloud .w13 { top: 80%; left: 7%; font-size: 1rem; color: #8d6540; }
-.word-cloud .w14 { top: 78%; right: 7%; font-size: 0.98rem; color: #4c6f79; }
-.word-cloud .w15 { top: 62%; right: 30%; font-size: 0.95rem; color: #6e568f; }
-.word-cloud .w16 { top: 15%; right: 30%; font-size: 0.96rem; color: #255f6d; }
-.word-cloud .w17 { top: 88%; left: 30%; font-size: 0.9rem; color: #6f6a4f; }
-.word-cloud .w18 { top: 44%; right: 24%; font-size: 0.92rem; color: #7b5f4d; }
-.word-cloud .w19 { top: 86%; right: 33%; font-size: 0.9rem; color: #4c6259; }
-.word-cloud .w20 { top: 88%; right: 8%; font-size: 0.9rem; color: #2c6f6d; }
+.word-cloud .w1  { grid-column: span 2; font-size: 1.55rem; color: #0f4f49; }
+.word-cloud .w2  { grid-column: span 1; font-size: 1.22rem; color: #214d7a; }
+.word-cloud .w3  { grid-column: span 1; font-size: 1.28rem; color: #2f5f3a; }
+.word-cloud .w4  { grid-column: span 2; font-size: 1.15rem; color: #4f3d84; }
+.word-cloud .w5  { grid-column: span 1; font-size: 1.06rem; color: #7b3f25; }
+.word-cloud .w6  { grid-column: span 1; font-size: 1.06rem; color: #16554f; }
+.word-cloud .w7  { grid-column: span 2; font-size: 1.08rem; color: #2b4f78; }
+.word-cloud .w8  { grid-column: span 2; font-size: 1.1rem; color: #2d4945; }
+.word-cloud .w9  { grid-column: span 1; font-size: 1rem; color: #6e4c19; }
+.word-cloud .w10 { grid-column: span 1; font-size: 0.98rem; color: #394854; }
+.word-cloud .w11 { grid-column: span 1; font-size: 1.14rem; color: #214c74; }
+.word-cloud .w12 { grid-column: span 1; font-size: 1.14rem; color: #1d4c47; }
+.word-cloud .w13 { grid-column: span 1; font-size: 1.02rem; color: #70482b; }
+.word-cloud .w14 { grid-column: span 2; font-size: 1.02rem; color: #36505f; }
+.word-cloud .w15 { grid-column: span 1; font-size: 0.98rem; color: #4b3a78; }
+.word-cloud .w16 { grid-column: span 1; font-size: 0.98rem; color: #12495a; }
+.word-cloud .w17 { grid-column: span 2; font-size: 0.96rem; color: #575338; }
+.word-cloud .w18 { grid-column: span 1; font-size: 0.96rem; color: #654c3a; }
+.word-cloud .w19 { grid-column: span 1; font-size: 0.96rem; color: #2f4a43; }
+.word-cloud .w20 { grid-column: span 2; font-size: 0.98rem; color: #1a5958; }
 
 .word-cloud::before {
   content: "";
@@ -590,12 +595,12 @@ h3 {
   }
 
   .word-cloud {
-    min-height: 300px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: auto;
   }
 
   .word-cloud span {
-    transform: scale(0.9);
-    transform-origin: top left;
+    font-size: 1rem;
   }
 
   .photo-row img,
