@@ -323,38 +323,48 @@ h3 {
 
 .word-cloud {
   position: relative;
-  min-height: 260px;
-  border: 1px dashed rgba(18, 38, 32, 0.2);
+  min-height: 320px;
+  border: 1px solid rgba(18, 38, 32, 0.16);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.92);
   overflow: hidden;
 }
 
 .word-cloud span {
   position: absolute;
   line-height: 1.05;
-  color: rgba(18, 38, 32, 0.6);
+  color: rgba(18, 38, 32, 0.7);
   font-family: "IBM Plex Sans", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
 }
 
-.word-cloud .w1 { top: 16%; left: 6%; font-size: 1.5rem; color: rgba(18, 38, 32, 0.7); }
-.word-cloud .w2 { top: 10%; right: 8%; font-size: 1.2rem; }
-.word-cloud .w3 { top: 44%; left: 8%; font-size: 1.25rem; }
-.word-cloud .w4 { top: 48%; right: 8%; font-size: 1.1rem; }
-.word-cloud .w5 { top: 70%; left: 15%; font-size: 1.05rem; }
-.word-cloud .w6 { top: 24%; left: 32%; font-size: 1.05rem; }
-.word-cloud .w7 { top: 76%; right: 14%; font-size: 0.98rem; }
-.word-cloud .w8 { top: 34%; left: 47%; font-size: 1.02rem; }
-.word-cloud .w9 { top: 58%; left: 38%; font-size: 0.95rem; }
-.word-cloud .w10 { top: 8%; left: 44%; font-size: 0.92rem; }
+.word-cloud .w1 { top: 10%; left: 5%; font-size: 1.45rem; color: #1e5b54; }
+.word-cloud .w2 { top: 8%; right: 9%; font-size: 1.2rem; color: #2f5f93; }
+.word-cloud .w3 { top: 36%; left: 6%; font-size: 1.23rem; color: #4a7051; }
+.word-cloud .w4 { top: 34%; right: 8%; font-size: 1.05rem; color: #6a5a9a; }
+.word-cloud .w5 { top: 66%; left: 14%; font-size: 1rem; color: #9a5b3a; }
+.word-cloud .w6 { top: 20%; left: 34%; font-size: 1rem; color: #2f6d66; }
+.word-cloud .w7 { top: 72%; right: 11%; font-size: 0.98rem; color: #4b6c97; }
+.word-cloud .w8 { top: 29%; left: 49%; font-size: 1rem; color: #46675c; }
+.word-cloud .w9 { top: 57%; left: 37%; font-size: 0.95rem; color: #835f2c; }
+.word-cloud .w10 { top: 6%; left: 44%; font-size: 0.9rem; color: #5f6c76; }
+.word-cloud .w11 { top: 46%; left: 23%; font-size: 1.08rem; color: #365f91; }
+.word-cloud .w12 { top: 50%; left: 52%; font-size: 1.12rem; color: #2f5a54; }
+.word-cloud .w13 { top: 80%; left: 7%; font-size: 1rem; color: #8d6540; }
+.word-cloud .w14 { top: 78%; right: 7%; font-size: 0.98rem; color: #4c6f79; }
+.word-cloud .w15 { top: 62%; right: 30%; font-size: 0.95rem; color: #6e568f; }
+.word-cloud .w16 { top: 15%; right: 30%; font-size: 0.96rem; color: #255f6d; }
+.word-cloud .w17 { top: 88%; left: 30%; font-size: 0.9rem; color: #6f6a4f; }
+.word-cloud .w18 { top: 44%; right: 24%; font-size: 0.92rem; color: #7b5f4d; }
+.word-cloud .w19 { top: 86%; right: 33%; font-size: 0.9rem; color: #4c6259; }
+.word-cloud .w20 { top: 88%; right: 8%; font-size: 0.9rem; color: #2c6f6d; }
 
 .word-cloud::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 52% 48%, rgba(15, 118, 110, 0.08), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.04), transparent 62%);
   pointer-events: none;
 }
 
@@ -580,7 +590,7 @@ h3 {
   }
 
   .word-cloud {
-    min-height: 220px;
+    min-height: 300px;
   }
 
   .word-cloud span {
