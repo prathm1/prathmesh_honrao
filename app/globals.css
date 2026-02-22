@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: #0f766e;
+    --brand-light: #14b8a6;
+    --bg: #f8f4ec;
+    --bg-dark: #eae6de;
+    --ink: #122620;
+    --ink-light: #2d4a43;
+    --ink-muted: #56746e;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: #0f766e33;
+    color: #122620;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-5xl mx-auto px-6 py-24;
+  }
+
+  .section-label {
+    @apply text-brand text-sm font-sans font-semibold tracking-widest uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl text-ink mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-ink-muted text-lg max-w-2xl;
+  }
+
+  .card {
+    @apply bg-bg-card border border-bg-dark rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .tag {
+    @apply inline-block text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .tag-insurance {
+    @apply bg-teal-50 text-teal-700;
+  }
+
+  .tag-automotive {
+    @apply bg-blue-50 text-blue-700;
+  }
+
+  .tag-banking {
+    @apply bg-orange-50 text-orange-700;
+  }
+
+  .tag-strategy { @apply bg-purple-50 text-purple-700; }
+  .tag-migration { @apply bg-teal-50 text-teal-700; }
+  .tag-poc { @apply bg-indigo-50 text-indigo-700; }
+  .tag-support { @apply bg-amber-50 text-amber-700; }
+}
+
+/* Timeline styles */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--brand), transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-light);
+  border-radius: 999px;
+}
