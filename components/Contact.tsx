@@ -69,7 +69,7 @@ export default function Contact() {
               <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider">
                 Working Philosophy
               </p>
-              {profile.philosophy.map((p, i) => (
+              {profile.workPhilosophy.map((p, i) => (
                 <p key={i} className="text-ink-light leading-relaxed text-sm italic">
                   &ldquo;{p}&rdquo;
                 </p>

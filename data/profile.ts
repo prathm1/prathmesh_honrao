@@ -15,10 +15,14 @@ export const profile = {
     "Every transformation is a people and process problem first, a technology problem second.",
     "The best technical solution is the one the business can actually sustain.",
   ],
+  workPhilosophy: [
+    "Most enterprise projects drown in noise — status updates, meetings, competing priorities, undocumented assumptions. My job is to cut through that and focus on what actually moves the needle.",
+    "I act as a bridge between technical teams and business stakeholders — translating complexity into decisions, and strategy into working systems.",
+  ],
   stats: [
     { value: "10+", label: "Years of Experience" },
     { value: "3", label: "Industries" },
     { value: "9+", label: "Major Engagements" },
-    { value: "2500+ GB", label: "Data Migrated" },
+    { value: "2500+ GB", label: "Production Data Migrated" },
   ],
 };

@@ -15,9 +15,9 @@ export const hobbies: Hobby[] = [
     title: "3D Printed IBM z17 Mainframe",
     subtitle: "1:32 Scale Model",
     description:
-      "A fully 3D-printed replica of the IBM z17 mainframe at 1:32 scale. Every panel, door, and detail recreated.",
+      "I print and paint a physical replica of the system I spend my days modernizing. Make of that what you will.",
     longDescription:
-      "As someone who spends their professional life working with mainframes, building a physical replica felt like the right way to honor this remarkable technology. The IBM z17 is printed at 1:32 scale with every external panel, cable tray, and door recreated as faithfully as possible. The model took multiple print iterations to get the proportions right and is painted in IBM's signature black and silver.",
+      "People find it funny that I 3D print replicas of the exact technology I'm paid to help companies move away from. I don't think it's contradictory at all. The IBM z17 is genuinely impressive engineering — the fact that it still runs a significant slice of the world's financial and insurance infrastructure isn't a failure of progress, it's proof that the original engineers got something right. Building a 1:32 scale physical replica was my way of acknowledging that. It took a few print iterations to get the proportions right, a bit of patience to paint in IBM's signature black and silver, and one slightly too-detailed afternoon on the cable trays. It sits on my desk now, and I think it looks exactly right there.",
     image: "/assets/hobby/mf_1.jpeg",
     tags: ["3D Printing", "IBM z17", "Scale Model", "Mainframe"],
     emoji: "🖥️",
@@ -27,9 +27,9 @@ export const hobbies: Hobby[] = [
     title: "MouldKing V8 Engine",
     subtitle: "Model 10088 — Working Pistons",
     description:
-      "A motorized V8 engine model with synchronized pistons, rotating crankshaft, and working valvetrain.",
+      "Eight pistons, one crankshaft, a working valvetrain, and two evenings that genuinely flew by.",
     longDescription:
-      "The MouldKing 10088 V8 engine is a precision mechanical model with a working crankshaft, synchronized piston movement, rotating camshafts, and a fully detailed valvetrain. When powered, all eight pistons fire in the correct V8 sequence. It's a satisfying blend of engineering precision and aesthetic craft — much like the systems I work on professionally.",
+      "I'm not a car enthusiast in the traditional sense — I don't track lap times or follow Formula 1 — but I find the mechanics of combustion engines genuinely fascinating. The way eight pistons coordinate through a crankshaft, the camshafts timing the valves, the whole sequence happening fast enough to be invisible to the eye — that's real engineering. The MouldKing 10088 brings all of that out in slow motion. You assemble it by hand, so you understand exactly what does what and why. When you plug it in for the first time and all eight pistons start moving in the correct V8 sequence, it's one of those moments where the engineering just becomes obvious. Spent two evenings building it, then probably another hour just running it and not doing anything else.",
     image: "/assets/hobby/L_V8.JPG",
     tags: ["Mechanical Model", "MouldKing", "Engineering", "V8"],
     emoji: "⚙️",
@@ -39,9 +39,9 @@ export const hobbies: Hobby[] = [
     title: "LEGO Iron Man",
     subtitle: "Set 76307",
     description:
-      "Marvel's Iron Man Mark III suit in full LEGO form — detailed armor panels, articulated joints, and all.",
+      "The Mark III in brick form. Took longer than I expected, looked better than I expected — so, a win.",
     longDescription:
-      "The LEGO Iron Man 76307 set is one of the most technically impressive armor builds in the Marvel collection. Every plate of the Mark III armor is faithfully represented with detailed panel lines, articulated arms and legs, and the iconic chest arc reactor. A display piece that balances technical precision with iconic design.",
+      "I'll be honest — I picked this up partly because it's Iron Man and partly because the build complexity looked interesting. Turns out both reasons were correct. Every armor plate on the Mark III is represented with actual detail: panel lines, joint articulation, the chest arc reactor. It's more involved than a typical display set, which I appreciated. There's a version of LEGO that's just snapping pieces together and watching a shape form, and then there's this — where you're solving a three-dimensional puzzle and the suit slowly emerges from a pile of parts. Got a bit tedious in the middle sections, then very satisfying by the end. It sits on the shelf now and looks exactly as it should.",
     image: "/assets/hobby/L_IronMan.JPG",
     tags: ["LEGO", "Marvel", "Iron Man", "Display Build"],
     emoji: "🤖",
@@ -51,9 +51,9 @@ export const hobbies: Hobby[] = [
     title: "LEGO Lamborghini",
     subtitle: "Set 76923",
     description:
-      "The iconic Lamborghini Huracán in LEGO Technic form — working suspension, V10 engine, and scissor doors.",
+      "A full weekend, a V10 with moving pistons, scissor doors that actually open. Sits next to the V8 and they look like they planned it.",
     longDescription:
-      "The LEGO Lamborghini Huracán 76923 is a Technic masterpiece featuring functional suspension, a detailed V10 engine with moving pistons, and the Huracán's signature scissor doors. Building it was a weekend well spent — and the finished model looks exactly at home next to the V8 engine build.",
+      "Technic sets are a different beast from regular LEGO. There's mechanical logic you have to follow — things have to mesh and rotate and flex correctly, or the whole thing just doesn't work as intended. The Huracán has functional suspension you can actually compress by pushing down on the body, a V10 engine with visible piston movement, and those iconic scissor doors that swing straight up. I hit a few confusing steps somewhere around instruction page 180 and had to partially disassemble a section, but that's part of it. The moment those doors open properly for the first time, all the earlier frustration just evaporates. It now sits right next to the MouldKing V8 engine, and I'm genuinely a little surprised at how well they complement each other.",
     image: "/assets/hobby/L_Lamborghini.JPG",
     tags: ["LEGO Technic", "Lamborghini", "Automotive", "Scale Model"],
     emoji: "🏎️",
@@ -63,9 +63,9 @@ export const hobbies: Hobby[] = [
     title: "Secret of Secrets",
     subtitle: "Dan Brown — A Rare Addition",
     description:
-      "A special addition to the collection — Dan Brown's exploration of the Emerald Tablet and alchemical secrets.",
+      "I don't read a lot of fiction, but 'hidden knowledge' happens to be my thing professionally. Dan Brown made it work.",
     longDescription:
-      "Dan Brown's 'Secret of Secrets' takes the reader through centuries of hidden knowledge, alchemical symbolism, and the enduring human fascination with what lies beneath the surface of things. A fitting read for someone who spends their days uncovering the logic hidden deep inside legacy codebases — where the real secrets have been locked away for decades.",
+      "I read almost exclusively non-fiction — usually something around technology, history, or how organizations function. So it takes something specific to get me to pick up a thriller. Dan Brown's recurring theme — that there's always a hidden layer underneath the surface, that the official version of things is never the whole story — resonates more than I expected. Professionally, I spend a lot of time inside legacy codebases that nobody has properly documented in 20 years. You learn to read the signals: variable names that reveal the original intent, commented-out blocks of logic that tell you what changed and roughly when, batch job sequences that explain an entire business process if you know how to trace them. It's the same instinct as the protagonist in this book: assume there's more to the story, then go looking for it. This scratches that same itch, just with considerably more drama and far fewer JCL error codes.",
     image: "/assets/hobby/SoS1.JPG",
     tags: ["Reading", "Dan Brown", "Books", "History"],
     emoji: "📚",
