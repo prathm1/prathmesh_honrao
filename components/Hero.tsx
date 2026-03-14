@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
-import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { Linkedin, ArrowDown } from "lucide-react";
 import { asset } from "@/lib/basePath";
 
 export default function Hero() {
@@ -93,15 +93,6 @@ export default function Hero() {
               >
                 <Linkedin size={15} />
                 LinkedIn
-              </a>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-bg-dark bg-bg-card text-ink-light px-4 py-2.5 rounded-lg font-medium text-sm hover:border-brand hover:text-brand transition-colors"
-              >
-                <Github size={15} />
-                GitHub
               </a>
             </motion.div>
           </div>

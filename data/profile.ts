@@ -1,6 +1,6 @@
 export const profile = {
   name: "Prathmesh Honrao",
-  title: "Application Modernization and Strategic Tech Consulting",
+  title: "I speak both tech and business — and translate between them.",
   subtitle: "Engineering · AI · Data",
   description:
     "I work at the intersection of code and strategy, legacy and modern systems, and business and engineering teams. I currently lead modernization initiatives at Deloitte Germany.",
