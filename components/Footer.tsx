@@ -7,7 +7,11 @@ export default function Footer() {
   const [visitors, setVisitors] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("https://api.counterapi.dev/v1/prathmesh-portfolio/pageviews/up")
+    const isOwner = localStorage.getItem("portfolio_owner") === "true";
+    const endpoint = isOwner
+      ? "https://api.counterapi.dev/v1/prathmesh-portfolio/pageviews"
+      : "https://api.counterapi.dev/v1/prathmesh-portfolio/pageviews/up";
+    fetch(endpoint)
       .then((r) => r.json())
       .then((data) => setVisitors(data.count ?? data.value ?? null))
       .catch(() => {});
