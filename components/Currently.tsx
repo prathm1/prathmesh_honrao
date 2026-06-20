@@ -13,7 +13,7 @@ export default function Currently() {
               Updated {now.updated}
             </span>
           </div>
-          <h2 className="section-title">What I'm Working On</h2>
+          <h2 className="section-title">What I&apos;m Working On</h2>
           <p className="section-subtitle mb-12">
             A live snapshot, not a brochure — the stack, the problem, and the idea on my mind this month.
           </p>
@@ -47,7 +47,7 @@ export default function Currently() {
                   <Target size={16} />
                 </span>
                 <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider">
-                  Problem I'm Solving
+                  Problem I&apos;m Solving
                 </p>
               </div>
               <p className="text-sm text-ink-light leading-relaxed">{now.problem}</p>
