@@ -8,6 +8,7 @@ const links = [
   { href: "#now", label: "Now" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#writing", label: "Writing" },
   { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
 ];
@@ -21,7 +22,7 @@ export default function Nav() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ["about", "now", "experience", "projects", "beyond", "contact"];
+      const sections = ["about", "now", "experience", "projects", "writing", "beyond", "contact"];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
