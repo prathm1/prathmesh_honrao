@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { Linkedin, ArrowDown } from "lucide-react";
 import { asset } from "@/lib/basePath";
+import Highlights from "./Highlights";
 
 export default function Hero() {
   return (
@@ -133,6 +134,8 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
+
+        <Highlights />
 
         {/* Scroll indicator */}
         <motion.div
