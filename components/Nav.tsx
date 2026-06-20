@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const links = [
   { href: "#about", label: "About" },
+  { href: "#now", label: "Now" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#beyond", label: "Beyond" },
@@ -20,7 +21,7 @@ export default function Nav() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ["about", "experience", "projects", "beyond", "contact"];
+      const sections = ["about", "now", "experience", "projects", "beyond", "contact"];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
