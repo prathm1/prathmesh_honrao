@@ -5,9 +5,9 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
-import { listDrafts, saveDraft, deleteDraft, type Draft, type DraftSection } from "@/lib/github-cms";
+import { listDrafts, saveDraft, deleteDraft, triggerLinkedInGeneration, type Draft, type DraftSection } from "@/lib/github-cms";
 import Link from "next/link";
-import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft, Eye, Pencil, KeyRound } from "lucide-react";
+import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft, Eye, Pencil, KeyRound, Linkedin } from "lucide-react";
 
 interface Props {
   pat: string;
@@ -35,6 +35,7 @@ export default function StudioEditor({ pat, onLogout }: Props) {
   const [mode, setMode] = useState<"edit" | "preview">("edit");
   const [showPatEdit, setShowPatEdit] = useState(false);
   const [newPat, setNewPat] = useState("");
+  const [linkedinToast, setLinkedinToast] = useState(false);
   const editorRef = useRef<ReturnType<typeof useEditor>>(null);
 
   const editor = useEditor({
@@ -118,6 +119,12 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       setDrafts((prev) => prev.map((d) => d.slug === updated.slug ? updated : d));
       setStatus("saved");
       setTimeout(() => setStatus("idle"), 2500);
+      // Trigger LinkedIn generation when publishing for the first time
+      if (publish === true && !active.published) {
+        triggerLinkedInGeneration(pat, updated.slug);
+        setLinkedinToast(true);
+        setTimeout(() => setLinkedinToast(false), 6000);
+      }
     } else {
       setStatus("error");
     }
@@ -141,7 +148,7 @@ export default function StudioEditor({ pat, onLogout }: Props) {
   }[status];
 
   return (
-    <div className="flex h-screen overflow-hidden bg-bg">
+    <div className="flex h-screen overflow-hidden bg-bg relative">
       {/* Sidebar */}
       <div className="w-64 border-r border-bg-dark flex flex-col flex-shrink-0">
         <div className="p-4 border-b border-bg-dark flex items-center justify-between">
@@ -227,6 +234,14 @@ export default function StudioEditor({ pat, onLogout }: Props) {
           )}
         </div>
       </div>
+
+      {/* LinkedIn toast */}
+      {linkedinToast && (
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-3 bg-[#0a66c2] text-white rounded-xl shadow-lg text-sm font-medium animate-in slide-in-from-bottom-2">
+          <Linkedin size={16} />
+          LinkedIn post generating — check your email in ~1 min
+        </div>
+      )}
 
       {/* Editor area */}
       <div className="flex-1 flex flex-col overflow-hidden">

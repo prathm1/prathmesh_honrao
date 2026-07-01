@@ -102,6 +102,18 @@ export async function saveDraft(pat: string, draft: Draft): Promise<boolean> {
   return res.ok;
 }
 
+export async function triggerLinkedInGeneration(pat: string, slug: string): Promise<boolean> {
+  const res = await fetch(
+    `https://api.github.com/repos/${REPO}/dispatches`,
+    {
+      method: "POST",
+      headers: headers(pat),
+      body: JSON.stringify({ event_type: "generate-linkedin", client_payload: { slug } }),
+    }
+  );
+  return res.ok || res.status === 204;
+}
+
 export async function deleteDraft(pat: string, slug: string): Promise<boolean> {
   const path = `content/drafts/${slug}.md`;
   const existing = await fetch(
