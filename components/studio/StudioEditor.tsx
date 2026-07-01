@@ -119,12 +119,6 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       setDrafts((prev) => prev.map((d) => d.slug === updated.slug ? updated : d));
       setStatus("saved");
       setTimeout(() => setStatus("idle"), 2500);
-      // Trigger LinkedIn generation when publishing for the first time
-      if (publish === true && !active.published) {
-        triggerLinkedInGeneration(pat, updated.slug);
-        setLinkedinToast(true);
-        setTimeout(() => setLinkedinToast(false), 6000);
-      }
     } else {
       setStatus("error");
     }
@@ -309,6 +303,17 @@ export default function StudioEditor({ pat, onLogout }: Props) {
                     }`}
                   >
                     {active.published ? <><Lock size={13} /> Unpublish</> : <><Globe size={13} /> Publish</>}
+                  </button>
+                  <button
+                    onClick={async () => {
+                      await triggerLinkedInGeneration(pat, active.slug);
+                      setLinkedinToast(true);
+                      setTimeout(() => setLinkedinToast(false), 6000);
+                    }}
+                    className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold bg-[#0a66c2] text-white hover:bg-[#004182] transition-colors shadow-sm"
+                    title="Generate LinkedIn post and email it to you"
+                  >
+                    <Linkedin size={13} /> Post to LinkedIn
                   </button>
                 </div>
               </div>
