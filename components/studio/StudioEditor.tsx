@@ -85,6 +85,7 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       setLoadingDrafts(false);
       if (d.length > 0) openDraft(d[0]);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pat]);
 
   const openDraft = useCallback((draft: Draft) => {

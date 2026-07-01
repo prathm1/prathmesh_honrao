@@ -110,7 +110,7 @@ function handleTOTP(e: React.FormEvent) {
               Save & Enter Studio
             </button>
             <p className="text-[10px] text-ink-muted text-center">
-              Saved to this browser only — you'll need to enter it once per device. Never sent anywhere except GitHub API.
+              Saved to this browser only — you&apos;ll need to enter it once per device. Never sent anywhere except GitHub API.
             </p>
           </form>
         )}
