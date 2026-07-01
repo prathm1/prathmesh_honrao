@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { verifyTOTP, getTOTPUri } from "@/lib/totp";
-import QRCode from "qrcode";
+import { useState } from "react";
+import { verifyTOTP } from "@/lib/totp";
 
 interface Props {
   onLogin: (pat: string) => void;
@@ -13,18 +12,7 @@ export default function StudioLogin({ onLogin }: Props) {
   const [pat, setPat] = useState("");
   const [step, setStep] = useState<"totp" | "pat">("totp");
   const [error, setError] = useState("");
-  const [showSetup, setShowSetup] = useState(false);
-  const [qrDataUrl, setQrDataUrl] = useState("");
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    if (showSetup) {
-      const uri = getTOTPUri();
-      QRCode.toDataURL(uri, { width: 200, margin: 2 }).then(setQrDataUrl);
-    }
-  }, [showSetup]);
-
-  function handleTOTP(e: React.FormEvent) {
+function handleTOTP(e: React.FormEvent) {
     e.preventDefault();
     if (verifyTOTP(code.replace(/\s/g, ""))) {
       const storedPat = localStorage.getItem("studio_pat");
@@ -86,24 +74,6 @@ export default function StudioLogin({ onLogin }: Props) {
             >
               Enter Studio
             </button>
-            <button
-              type="button"
-              onClick={() => setShowSetup(!showSetup)}
-              className="text-xs text-ink-muted hover:text-brand transition-colors text-center"
-            >
-              {showSetup ? "Hide setup" : "First time? Scan QR code"}
-            </button>
-            {showSetup && qrDataUrl && (
-              <div className="flex flex-col items-center gap-3 pt-2 border-t border-bg-dark">
-                <p className="text-xs text-ink-muted text-center">
-                  Scan with Google Authenticator or Authy
-                </p>
-                <img src={qrDataUrl} alt="TOTP QR code" className="rounded-lg" />
-                <p className="text-[10px] text-ink-muted text-center">
-                  Then enter the 6-digit code above
-                </p>
-              </div>
-            )}
           </form>
         )}
 
