@@ -7,7 +7,7 @@ import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import { listDrafts, saveDraft, deleteDraft, type Draft, type DraftSection } from "@/lib/github-cms";
 import Link from "next/link";
-import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft, Eye, Pencil } from "lucide-react";
+import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft, Eye, Pencil, KeyRound } from "lucide-react";
 
 interface Props {
   pat: string;
@@ -33,6 +33,8 @@ export default function StudioEditor({ pat, onLogout }: Props) {
   const [loadingDrafts, setLoadingDrafts] = useState(true);
   const [title, setTitle] = useState("");
   const [mode, setMode] = useState<"edit" | "preview">("edit");
+  const [showPatEdit, setShowPatEdit] = useState(false);
+  const [newPat, setNewPat] = useState("");
   const editorRef = useRef<ReturnType<typeof useEditor>>(null);
 
   const editor = useEditor({
@@ -147,11 +149,40 @@ export default function StudioEditor({ pat, onLogout }: Props) {
             <Link href="/" className="flex items-center gap-1 text-xs text-ink-muted hover:text-brand transition-colors">
               <ArrowLeft size={12} /> Site
             </Link>
+            <button onClick={() => setShowPatEdit(!showPatEdit)} className="flex items-center gap-1 text-xs text-ink-muted hover:text-brand transition-colors" title="Update GitHub token">
+              <KeyRound size={12} />
+            </button>
             <button onClick={onLogout} className="flex items-center gap-1 text-xs text-ink-muted hover:text-red-500 transition-colors">
               <LogOut size={12} /> Out
             </button>
           </div>
         </div>
+
+        {showPatEdit && (
+          <div className="p-3 border-b border-bg-dark bg-bg-dark/40">
+            <p className="text-[10px] text-ink-muted mb-2 uppercase tracking-wider font-semibold">Update GitHub Token</p>
+            <input
+              type="password"
+              value={newPat}
+              onChange={(e) => setNewPat(e.target.value)}
+              placeholder="github_pat_..."
+              className="w-full px-2.5 py-1.5 rounded-lg border border-bg-dark bg-bg text-ink-light font-mono text-xs focus:outline-none focus:border-brand mb-2"
+            />
+            <button
+              onClick={() => {
+                if (!newPat) return;
+                localStorage.setItem("studio_pat", newPat);
+                setNewPat("");
+                setShowPatEdit(false);
+                window.location.reload();
+              }}
+              disabled={!newPat}
+              className="w-full py-1.5 rounded-lg bg-brand text-white text-xs font-medium disabled:opacity-40 hover:bg-brand-dark transition-colors"
+            >
+              Save & reload
+            </button>
+          </div>
+        )}
 
         <div className="p-3">
           <button
