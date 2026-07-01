@@ -29,6 +29,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /prathmesh_honrao
+          NEXT_PUBLIC_TOTP_SECRET: ${{ secrets.NEXT_PUBLIC_TOTP_SECRET }}
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
