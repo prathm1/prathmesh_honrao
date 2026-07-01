@@ -62,6 +62,10 @@ export default function StudioEditor({ pat, onLogout }: Props) {
     listDrafts(pat).then((d) => {
       setDrafts(d);
       setLoadingDrafts(false);
+      // Auto-open the most recent draft if one exists
+      if (d.length > 0) {
+        openDraft(d[0]);
+      }
     });
   }, [pat]);
 
@@ -224,10 +228,16 @@ export default function StudioEditor({ pat, onLogout }: Props) {
             </div>
           </>
         ) : (
-          <div className="flex-1 flex items-center justify-center text-ink-muted">
+          <div className="flex-1 flex items-center justify-center">
             <div className="text-center">
-              <FileText size={40} className="mx-auto mb-3 opacity-30" />
-              <p className="text-sm">Select a draft or create a new one</p>
+              <FileText size={40} className="mx-auto mb-3 text-ink-muted opacity-30" />
+              <p className="text-sm text-ink-muted mb-4">Nothing open yet</p>
+              <button
+                onClick={handleNew}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand text-white text-sm font-medium hover:bg-brand-dark transition-colors mx-auto"
+              >
+                <Plus size={15} /> New draft
+              </button>
             </div>
           </div>
         )}

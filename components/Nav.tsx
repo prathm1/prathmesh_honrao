@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { PenSquare } from "lucide-react";
 
 const links = [
   { href: "#about", label: "About" },
@@ -80,6 +81,16 @@ export default function Nav() {
             );
           })}
         </ul>
+
+        {/* Studio link */}
+        <Link
+          href="/studio"
+          className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-ink-muted hover:text-brand hover:bg-brand-100 transition-all duration-200"
+          title="Studio"
+        >
+          <PenSquare size={14} />
+          <span>Studio</span>
+        </Link>
 
         {/* Mobile hamburger */}
         <button
