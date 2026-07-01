@@ -5,8 +5,13 @@ import { hobbies } from "@/data/hobbies";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { asset } from "@/lib/basePath";
 import { ArrowUpRight } from "lucide-react";
+import type { PublishedDraft } from "@/lib/content";
 
-export default function BeyondWork() {
+interface Props {
+  drafts: PublishedDraft[];
+}
+
+export default function BeyondWork({ drafts }: Props) {
   return (
     <section id="beyond">
       <div className="section-container">
@@ -73,6 +78,22 @@ export default function BeyondWork() {
             </AnimateOnScroll>
           ))}
         </div>
+
+        {drafts.length > 0 && (
+          <div className="mt-10 flex flex-col gap-4">
+            {drafts.map((draft, i) => (
+              <AnimateOnScroll key={draft.slug} delay={i * 0.05}>
+                <div className="card">
+                  <p className="font-serif text-base font-semibold text-ink mb-2">{draft.title}</p>
+                  <div
+                    className="text-sm text-ink-light leading-relaxed prose prose-sm max-w-none"
+                    dangerouslySetInnerHTML={{ __html: draft.content }}
+                  />
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

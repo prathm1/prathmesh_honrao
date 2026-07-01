@@ -1,8 +1,13 @@
 import { now } from "@/data/now";
 import { Layers, Target, Lightbulb } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import type { PublishedDraft } from "@/lib/content";
 
-export default function Currently() {
+interface Props {
+  drafts: PublishedDraft[];
+}
+
+export default function Currently({ drafts }: Props) {
   return (
     <section id="now" className="bg-bg-dark/30">
       <div className="section-container">
@@ -68,6 +73,22 @@ export default function Currently() {
             </div>
           </AnimateOnScroll>
         </div>
+
+        {drafts.length > 0 && (
+          <div className="mt-10 flex flex-col gap-4">
+            {drafts.map((draft, i) => (
+              <AnimateOnScroll key={draft.slug} delay={i * 0.05}>
+                <div className="card">
+                  <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider mb-2">{draft.title}</p>
+                  <div
+                    className="text-sm text-ink-light leading-relaxed prose prose-sm max-w-none"
+                    dangerouslySetInnerHTML={{ __html: draft.content }}
+                  />
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

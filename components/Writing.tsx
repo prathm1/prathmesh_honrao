@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { posts } from "@/data/writing";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, PenSquare } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import type { PublishedDraft } from "@/lib/content";
 
-export default function Writing() {
+interface Props {
+  drafts: PublishedDraft[];
+}
+
+export default function Writing({ drafts }: Props) {
   const latest = posts.slice(0, 3);
 
   return (
@@ -51,6 +56,25 @@ export default function Writing() {
                   ))}
                 </div>
               </Link>
+            </AnimateOnScroll>
+          ))}
+
+          {drafts.map((draft, i) => (
+            <AnimateOnScroll key={draft.slug} delay={(latest.length + i) * 0.05}>
+              <div className="card h-full flex flex-col">
+                <div className="flex items-center gap-2 text-xs text-ink-muted mb-3">
+                  <PenSquare size={13} />
+                  {new Date(draft.updated).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </div>
+                <h3 className="font-serif text-lg text-ink leading-snug mb-2">{draft.title}</h3>
+                <div
+                  className="text-sm text-ink-light leading-relaxed flex-1 prose prose-sm max-w-none line-clamp-4"
+                  dangerouslySetInnerHTML={{ __html: draft.content }}
+                />
+              </div>
             </AnimateOnScroll>
           ))}
         </div>

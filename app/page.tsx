@@ -9,20 +9,25 @@ import Certifications from "@/components/Certifications";
 import BeyondWork from "@/components/BeyondWork";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { getPublishedDrafts } from "@/lib/content";
 
 export default function Home() {
+  const writingDrafts = getPublishedDrafts("writing");
+  const nowDrafts = getPublishedDrafts("now");
+  const beyondDrafts = getPublishedDrafts("beyond");
+
   return (
     <>
       <Nav />
       <main>
         <Hero />
-        <Currently />
+        <Currently drafts={nowDrafts} />
         <Experience />
         <Education />
         <Projects />
-        <Writing />
+        <Writing drafts={writingDrafts} />
         <Certifications />
-        <BeyondWork />
+        <BeyondWork drafts={beyondDrafts} />
         <Contact />
       </main>
       <Footer />
