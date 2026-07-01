@@ -9,10 +9,13 @@ function headers(pat: string) {
   };
 }
 
+export type DraftSection = "writing" | "now" | "beyond";
+
 export interface Draft {
   slug: string;
   title: string;
   published: boolean;
+  section: DraftSection;
   created: string;
   updated: string;
   content: string;
@@ -20,7 +23,7 @@ export interface Draft {
 
 function parseFrontmatter(raw: string): Draft {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!match) return { slug: "", title: "Untitled", published: false, created: "", updated: "", content: raw };
+  if (!match) return { slug: "", title: "Untitled", published: false, section: "writing", created: "", updated: "", content: raw };
   const fm: Record<string, string> = {};
   match[1].split("\n").forEach((line) => {
     const [k, ...v] = line.split(": ");
@@ -30,6 +33,7 @@ function parseFrontmatter(raw: string): Draft {
     slug: fm.slug ?? "",
     title: fm.title ?? "Untitled",
     published: fm.published === "true",
+    section: (fm.section as DraftSection) ?? "writing",
     created: fm.created ?? "",
     updated: fm.updated ?? "",
     content: match[2].trim(),
@@ -41,6 +45,7 @@ function toMarkdown(draft: Draft): string {
 slug: ${draft.slug}
 title: "${draft.title}"
 published: ${draft.published}
+section: ${draft.section}
 created: ${draft.created}
 updated: ${draft.updated}
 ---

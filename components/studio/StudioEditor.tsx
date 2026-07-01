@@ -5,7 +5,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
-import { listDrafts, saveDraft, deleteDraft, type Draft } from "@/lib/github-cms";
+import { listDrafts, saveDraft, deleteDraft, type Draft, type DraftSection } from "@/lib/github-cms";
 import Link from "next/link";
 import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft } from "lucide-react";
 
@@ -14,10 +14,16 @@ interface Props {
   onLogout: () => void;
 }
 
+const SECTIONS: { value: DraftSection; label: string }[] = [
+  { value: "writing", label: "Writing" },
+  { value: "now", label: "Currently" },
+  { value: "beyond", label: "Beyond Work" },
+];
+
 function newDraft(): Draft {
   const slug = `draft-${Date.now()}`;
   const now = new Date().toISOString().split("T")[0];
-  return { slug, title: "Untitled", published: false, created: now, updated: now, content: "" };
+  return { slug, title: "Untitled", published: false, section: "writing", created: now, updated: now, content: "" };
 }
 
 export default function StudioEditor({ pat, onLogout }: Props) {
@@ -187,41 +193,59 @@ export default function StudioEditor({ pat, onLogout }: Props) {
         {active ? (
           <>
             {/* Toolbar */}
-            <div className="border-b border-bg-dark px-6 py-3 flex items-center gap-3 flex-shrink-0">
-              <input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title"
-                className="flex-1 font-serif text-lg text-ink bg-transparent focus:outline-none placeholder:text-ink-muted/50"
-              />
-              <div className="flex items-center gap-2 ml-auto">
-                {statusLabel}
-                <button
-                  onClick={handleDelete}
-                  className="p-2 text-ink-muted hover:text-red-500 transition-colors"
-                  title="Delete"
+            <div className="border-b border-bg-dark px-6 py-3 flex-shrink-0">
+              {/* Row 1: title + actions */}
+              <div className="flex items-center gap-3">
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Title"
+                  className="flex-1 font-serif text-lg text-ink bg-transparent focus:outline-none placeholder:text-ink-muted/50"
+                />
+                <div className="flex items-center gap-2">
+                  {statusLabel}
+                  <button
+                    onClick={handleDelete}
+                    className="p-2 text-ink-muted hover:text-red-500 transition-colors"
+                    title="Delete"
+                  >
+                    <Trash2 size={15} />
+                  </button>
+                </div>
+              </div>
+              {/* Row 2: section picker + save + publish */}
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs text-ink-muted">Publish to:</span>
+                <select
+                  value={active.section}
+                  onChange={(e) => setActive({ ...active, section: e.target.value as DraftSection })}
+                  className="text-xs border border-bg-dark rounded-lg px-2 py-1.5 bg-bg text-ink-light focus:outline-none focus:border-brand"
                 >
-                  <Trash2 size={15} />
-                </button>
-                <button
-                  onClick={() => handleSave()}
-                  disabled={status === "saving"}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-bg-dark text-sm text-ink-light hover:border-brand hover:text-brand transition-colors disabled:opacity-40"
-                >
-                  <Save size={13} /> Save
-                </button>
-                <button
-                  onClick={() => handleSave(!active.published)}
-                  disabled={status === "saving"}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 ${
-                    active.published
-                      ? "bg-bg-dark text-ink-muted hover:bg-red-50 hover:text-red-600"
-                      : "bg-brand text-white hover:bg-brand-dark"
-                  }`}
-                >
-                  {active.published ? <><Lock size={13} /> Unpublish</> : <><Globe size={13} /> Publish</>}
-                </button>
+                  {SECTIONS.map((s) => (
+                    <option key={s.value} value={s.value}>{s.label}</option>
+                  ))}
+                </select>
+                <div className="ml-auto flex items-center gap-2">
+                  <button
+                    onClick={() => handleSave()}
+                    disabled={status === "saving"}
+                    className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg border border-bg-dark text-sm font-medium text-ink-light hover:border-brand hover:text-brand transition-colors disabled:opacity-40"
+                  >
+                    <Save size={13} /> Save draft
+                  </button>
+                  <button
+                    onClick={() => handleSave(!active.published)}
+                    disabled={status === "saving"}
+                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors disabled:opacity-40 ${
+                      active.published
+                        ? "bg-bg-dark text-ink-muted hover:bg-red-50 hover:text-red-600 border border-bg-dark"
+                        : "bg-brand text-white hover:bg-brand-dark shadow-sm"
+                    }`}
+                  >
+                    {active.published ? <><Lock size={13} /> Unpublish</> : <><Globe size={13} /> Publish</>}
+                  </button>
+                </div>
               </div>
             </div>
 

@@ -120,7 +120,7 @@ export default function Nav() {
       {/* Mobile menu */}
       <div
         className={`md:hidden transition-all duration-300 overflow-hidden ${
-          open ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         } bg-bg border-b border-bg-dark`}
       >
         <ul className="px-6 py-4 flex flex-col gap-1">
@@ -135,6 +135,15 @@ export default function Nav() {
               </a>
             </li>
           ))}
+          <li className="pt-2 border-t border-bg-dark mt-1">
+            <Link
+              href="/studio"
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-ink-muted hover:text-brand hover:bg-brand-50 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              <PenSquare size={14} /> Studio
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
