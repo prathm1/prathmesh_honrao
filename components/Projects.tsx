@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { projects, type ProjectCategory, type Industry } from "@/data/projects";
 import { ArrowUpRight } from "lucide-react";
 import IndustryChart from "./IndustryChart";
 import SkillCloud from "./SkillCloud";
 import AnimateOnScroll from "./AnimateOnScroll";
+import { parseStartYear } from "@/lib/timeline";
 
 type Filter = "All" | ProjectCategory;
 const filters: Filter[] = ["All", "Strategy", "Migration", "PoC", "Support"];
@@ -27,10 +28,18 @@ const categoryTagClass: Record<ProjectCategory, string> = {
 
 export default function Projects() {
   const [filter, setFilter] = useState<Filter>("All");
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 0.85", "end 0.6"],
+  });
+  const spineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  const filtered = projects.filter(
-    (p) => filter === "All" || p.categories.includes(filter as ProjectCategory)
-  );
+  const filtered = projects
+    .filter((p) => filter === "All" || p.categories.includes(filter as ProjectCategory))
+    .sort((a, b) => parseStartYear(a.year) - parseStartYear(b.year));
+
+  let lastYear: number | null = null;
 
   return (
     <section id="projects" className="bg-bg-dark/30">
@@ -88,73 +97,103 @@ export default function Projects() {
           </div>
         </AnimateOnScroll>
 
-        {/* Project grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.slug}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group block h-full"
-                >
-                  <div className="card h-full flex flex-col group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-300">
-                    {/* Year + tags */}
-                    <div className="flex flex-wrap items-center gap-1.5 mb-3">
-                      <span className="tag bg-bg-dark text-ink-muted text-[10px]">
-                        {project.year}
-                      </span>
-                      <span
-                        className={`tag text-[10px] ${industryTagClass[project.industry]}`}
-                      >
-                        {project.industry}
-                      </span>
-                      {project.categories.map((cat) => (
-                        <span
-                          key={cat}
-                          className={`tag text-[10px] ${categoryTagClass[cat]}`}
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
+        {/* Chronological timeline */}
+        <div ref={timelineRef} className="relative">
+          {/* Static spine track */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-bg-dark hidden md:block" />
+          {/* Scroll-filled spine */}
+          <motion.div
+            className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-brand to-brand/40 hidden md:block origin-top"
+            style={{ scaleY: spineScale }}
+          />
 
-                    {/* Title */}
-                    <h3 className="font-serif text-base font-semibold text-ink mb-2 group-hover:text-brand transition-colors leading-snug">
-                      {project.shortTitle}
-                    </h3>
+          <div className="flex flex-col gap-6">
+            <AnimatePresence mode="popLayout">
+              {filtered.map((project, i) => {
+                const startYear = parseStartYear(project.year);
+                const showYearMarker = startYear !== lastYear;
+                lastYear = startYear;
 
-                    {/* Tagline */}
-                    <p className="text-sm text-ink-muted leading-relaxed flex-1 mb-4">
-                      {project.tagline}
-                    </p>
+                return (
+                  <motion.div
+                    key={project.slug}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.35, delay: i * 0.04 }}
+                    className="md:pl-10 relative"
+                  >
+                    {/* Timeline dot */}
+                    <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-brand hidden md:block -translate-x-[3px]" />
 
-                    {/* Stat + CTA */}
-                    <div className="flex items-center justify-between pt-3 border-t border-bg-dark">
-                      <div>
-                        <p className="font-serif text-lg font-bold text-brand">
-                          {project.stat.value}
-                        </p>
-                        <p className="text-[10px] text-ink-muted">
-                          {project.stat.label}
-                        </p>
+                    {showYearMarker && (
+                      <p className="font-serif text-sm font-semibold text-brand mb-2 md:-ml-10 md:pl-0">
+                        {startYear}
+                      </p>
+                    )}
+
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="group block"
+                    >
+                      <div className="card flex flex-col group-hover:-translate-y-0.5 group-hover:shadow-md transition-all duration-300">
+                        <div className="flex flex-wrap items-start justify-between gap-4">
+                          <div className="flex-1 min-w-0">
+                            {/* Tags */}
+                            <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                              <span className="tag bg-bg-dark text-ink-muted text-[10px]">
+                                {project.year}
+                              </span>
+                              <span
+                                className={`tag text-[10px] ${industryTagClass[project.industry]}`}
+                              >
+                                {project.industry}
+                              </span>
+                              {project.categories.map((cat) => (
+                                <span
+                                  key={cat}
+                                  className={`tag text-[10px] ${categoryTagClass[cat]}`}
+                                >
+                                  {cat}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="font-serif text-base font-semibold text-ink mb-1.5 group-hover:text-brand transition-colors leading-snug">
+                              {project.shortTitle}
+                            </h3>
+
+                            {/* Tagline */}
+                            <p className="text-sm text-ink-muted leading-relaxed">
+                              {project.tagline}
+                            </p>
+                          </div>
+
+                          {/* Stat + CTA */}
+                          <div className="flex flex-col items-end gap-2 flex-shrink-0">
+                            <div className="text-right">
+                              <p className="font-serif text-lg font-bold text-brand">
+                                {project.stat.value}
+                              </p>
+                              <p className="text-[10px] text-ink-muted whitespace-nowrap">
+                                {project.stat.label}
+                              </p>
+                            </div>
+                            <span className="flex items-center gap-1 text-xs font-semibold text-brand group-hover:gap-2 transition-all">
+                              Deep Dive
+                              <ArrowUpRight size={13} />
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                      <span className="flex items-center gap-1 text-xs font-semibold text-brand group-hover:gap-2 transition-all">
-                        Deep Dive
-                        <ArrowUpRight size={13} />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
