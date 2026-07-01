@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { verifyTOTP } from "@/lib/totp";
 
 interface Props {
@@ -40,6 +42,9 @@ function handleTOTP(e: React.FormEvent) {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-brand transition-colors mb-6">
+            <ArrowLeft size={13} /> Back to site
+          </Link>
           <div className="w-12 h-12 rounded-xl bg-brand text-white flex items-center justify-center font-serif font-bold text-xl mx-auto mb-4">
             PH
           </div>

@@ -6,7 +6,8 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import { listDrafts, saveDraft, deleteDraft, type Draft } from "@/lib/github-cms";
-import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft } from "lucide-react";
 
 interface Props {
   pat: string;
@@ -126,9 +127,14 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       <div className="w-64 border-r border-bg-dark flex flex-col flex-shrink-0">
         <div className="p-4 border-b border-bg-dark flex items-center justify-between">
           <span className="font-serif text-sm font-semibold text-ink">Studio</span>
-          <button onClick={onLogout} title="Log out" className="text-ink-muted hover:text-ink transition-colors">
-            <LogOut size={15} />
-          </button>
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-1 text-xs text-ink-muted hover:text-brand transition-colors">
+              <ArrowLeft size={12} /> Site
+            </Link>
+            <button onClick={onLogout} title="Log out" className="flex items-center gap-1 text-xs text-ink-muted hover:text-red-500 transition-colors">
+              <LogOut size={12} /> Out
+            </button>
+          </div>
         </div>
 
         <div className="p-3">
