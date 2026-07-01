@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import { listDrafts, saveDraft, deleteDraft, type Draft, type DraftSection } from "@/lib/github-cms";
 import Link from "next/link";
-import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft } from "lucide-react";
+import { LogOut, Plus, Save, Globe, Lock, Trash2, FileText, Loader2, ArrowLeft, Eye, Pencil } from "lucide-react";
 
 interface Props {
   pat: string;
@@ -32,6 +32,8 @@ export default function StudioEditor({ pat, onLogout }: Props) {
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [loadingDrafts, setLoadingDrafts] = useState(true);
   const [title, setTitle] = useState("");
+  const [mode, setMode] = useState<"edit" | "preview">("edit");
+  const editorRef = useRef<ReturnType<typeof useEditor>>(null);
 
   const editor = useEditor({
     extensions: [
@@ -39,40 +41,47 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       Image.configure({ inline: false, allowBase64: true }),
       Placeholder.configure({ placeholder: "Start writing… paste images, jot ideas, anything." }),
     ],
-    editorProps: {
-      handlePaste(view, event) {
-        const items = event.clipboardData?.items;
-        if (!items) return false;
-        for (const item of Array.from(items)) {
-          if (item.type.startsWith("image/")) {
-            event.preventDefault();
-            const file = item.getAsFile();
-            if (!file) continue;
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              const src = e.target?.result as string;
-              view.dispatch(view.state.tr.replaceSelectionWith(
-                view.state.schema.nodes.image.create({ src })
-              ));
-            };
-            reader.readAsDataURL(file);
-            return true;
-          }
-        }
-        return false;
-      },
-    },
     content: "",
   });
+
+  // Store editor ref for use in paste handler
+  useEffect(() => {
+    (editorRef as any).current = editor;
+  }, [editor]);
+
+  // Image paste via document-level listener (more reliable than editorProps)
+  useEffect(() => {
+    function onPaste(e: ClipboardEvent) {
+      const ed = (editorRef as any).current;
+      if (!ed || !ed.isFocused) return;
+
+      const items = Array.from(e.clipboardData?.items ?? []);
+      const files = Array.from(e.clipboardData?.files ?? []);
+
+      const imageItem = items.find((i) => i.type.startsWith("image/"));
+      const imageFile = files.find((f) => f.type.startsWith("image/"));
+      const source = imageItem?.getAsFile() ?? imageFile ?? null;
+
+      if (!source) return;
+      e.preventDefault();
+
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const src = ev.target?.result as string;
+        ed.chain().focus().setImage({ src }).run();
+      };
+      reader.readAsDataURL(source);
+    }
+
+    document.addEventListener("paste", onPaste);
+    return () => document.removeEventListener("paste", onPaste);
+  }, []);
 
   useEffect(() => {
     listDrafts(pat).then((d) => {
       setDrafts(d);
       setLoadingDrafts(false);
-      // Auto-open the most recent draft if one exists
-      if (d.length > 0) {
-        openDraft(d[0]);
-      }
+      if (d.length > 0) openDraft(d[0]);
     });
   }, [pat]);
 
@@ -81,6 +90,7 @@ export default function StudioEditor({ pat, onLogout }: Props) {
     setTitle(draft.title);
     editor?.commands.setContent(draft.content || "");
     setStatus("idle");
+    setMode("edit");
   }, [editor]);
 
   function handleNew() {
@@ -122,9 +132,9 @@ export default function StudioEditor({ pat, onLogout }: Props) {
 
   const statusLabel = {
     idle: null,
-    saving: <span className="flex items-center gap-1.5 text-ink-muted"><Loader2 size={13} className="animate-spin" /> Saving…</span>,
+    saving: <span className="flex items-center gap-1.5 text-ink-muted text-sm"><Loader2 size={13} className="animate-spin" /> Saving…</span>,
     saved: <span className="text-brand text-sm">Committed ✓</span>,
-    error: <span className="text-red-500 text-sm">Error — check PAT permissions</span>,
+    error: <span className="text-red-500 text-sm">Error — check PAT</span>,
   }[status];
 
   return (
@@ -133,11 +143,11 @@ export default function StudioEditor({ pat, onLogout }: Props) {
       <div className="w-64 border-r border-bg-dark flex flex-col flex-shrink-0">
         <div className="p-4 border-b border-bg-dark flex items-center justify-between">
           <span className="font-serif text-sm font-semibold text-ink">Studio</span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-1 text-xs text-ink-muted hover:text-brand transition-colors">
               <ArrowLeft size={12} /> Site
             </Link>
-            <button onClick={onLogout} title="Log out" className="flex items-center gap-1 text-xs text-ink-muted hover:text-red-500 transition-colors">
+            <button onClick={onLogout} className="flex items-center gap-1 text-xs text-ink-muted hover:text-red-500 transition-colors">
               <LogOut size={12} /> Out
             </button>
           </div>
@@ -165,9 +175,7 @@ export default function StudioEditor({ pat, onLogout }: Props) {
                 key={d.slug}
                 onClick={() => openDraft(d)}
                 className={`w-full text-left px-3 py-2.5 rounded-lg mb-1 transition-colors ${
-                  active?.slug === d.slug
-                    ? "bg-brand-100 text-ink"
-                    : "hover:bg-bg-dark text-ink-light"
+                  active?.slug === d.slug ? "bg-brand-100 text-ink" : "hover:bg-bg-dark text-ink-light"
                 }`}
               >
                 <div className="flex items-center gap-1.5 mb-0.5">
@@ -188,13 +196,12 @@ export default function StudioEditor({ pat, onLogout }: Props) {
         </div>
       </div>
 
-      {/* Editor */}
+      {/* Editor area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {active ? (
           <>
             {/* Toolbar */}
             <div className="border-b border-bg-dark px-6 py-3 flex-shrink-0">
-              {/* Row 1: title + actions */}
               <div className="flex items-center gap-3">
                 <input
                   type="text"
@@ -205,16 +212,27 @@ export default function StudioEditor({ pat, onLogout }: Props) {
                 />
                 <div className="flex items-center gap-2">
                   {statusLabel}
-                  <button
-                    onClick={handleDelete}
-                    className="p-2 text-ink-muted hover:text-red-500 transition-colors"
-                    title="Delete"
-                  >
+                  {/* Edit / Preview toggle */}
+                  <div className="flex items-center border border-bg-dark rounded-lg overflow-hidden text-xs">
+                    <button
+                      onClick={() => setMode("edit")}
+                      className={`flex items-center gap-1 px-2.5 py-1.5 transition-colors ${mode === "edit" ? "bg-brand text-white" : "text-ink-muted hover:text-ink"}`}
+                    >
+                      <Pencil size={11} /> Edit
+                    </button>
+                    <button
+                      onClick={() => setMode("preview")}
+                      className={`flex items-center gap-1 px-2.5 py-1.5 transition-colors ${mode === "preview" ? "bg-brand text-white" : "text-ink-muted hover:text-ink"}`}
+                    >
+                      <Eye size={11} /> Preview
+                    </button>
+                  </div>
+                  <button onClick={handleDelete} className="p-1.5 text-ink-muted hover:text-red-500 transition-colors" title="Delete">
                     <Trash2 size={15} />
                   </button>
                 </div>
               </div>
-              {/* Row 2: section picker + save + publish */}
+
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs text-ink-muted">Publish to:</span>
                 <select
@@ -249,12 +267,22 @@ export default function StudioEditor({ pat, onLogout }: Props) {
               </div>
             </div>
 
-            {/* Editor body */}
+            {/* Content area */}
             <div className="flex-1 overflow-y-auto px-16 py-10">
-              <EditorContent
-                editor={editor}
-                className="prose prose-sm max-w-3xl mx-auto min-h-[60vh] focus:outline-none"
-              />
+              {mode === "edit" ? (
+                <EditorContent
+                  editor={editor}
+                  className="prose prose-sm max-w-3xl mx-auto min-h-[60vh] focus:outline-none"
+                />
+              ) : (
+                <div className="max-w-3xl mx-auto">
+                  <h1 className="font-serif text-3xl text-ink font-semibold mb-6">{title || "Untitled"}</h1>
+                  <div
+                    className="prose prose-sm max-w-none text-ink-light"
+                    dangerouslySetInnerHTML={{ __html: editor?.getHTML() ?? "" }}
+                  />
+                </div>
+              )}
             </div>
           </>
         ) : (
