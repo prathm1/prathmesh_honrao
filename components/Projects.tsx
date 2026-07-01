@@ -128,9 +128,14 @@ export default function Projects() {
                     <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-brand hidden md:block -translate-x-[3px]" />
 
                     {showYearMarker && (
-                      <p className="font-serif text-sm font-semibold text-brand mb-2 md:-ml-10 md:pl-0">
-                        {startYear}
-                      </p>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="hidden md:block font-mono text-xs font-bold text-brand bg-brand-100 px-2 py-0.5 rounded-md">
+                          {startYear}
+                        </span>
+                        <span className="md:hidden font-serif text-sm font-semibold text-brand">
+                          {startYear}
+                        </span>
+                      </div>
                     )}
 
                     <Link
