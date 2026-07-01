@@ -92,6 +92,15 @@ export default function Nav() {
           <span>Studio</span>
         </Link>
 
+        {/* Studio link — always visible on mobile next to hamburger */}
+        <Link
+          href="/studio"
+          className="md:hidden flex items-center gap-1 px-2.5 py-1.5 rounded-md text-sm font-medium text-ink-muted hover:text-brand hover:bg-brand-100 transition-all duration-200"
+          title="Studio"
+        >
+          <PenSquare size={15} />
+        </Link>
+
         {/* Mobile hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
