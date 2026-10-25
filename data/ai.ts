@@ -1,9 +1,9 @@
 // AI as a Force Multiplier — a dedicated spotlight.
-// Message: using AI reliably since 2020 to do more, better, with LESS risk.
+// Message: using AI reliably since 2023 to do more, better, with LESS risk.
 // Keep it concrete and grounded — not hype.
 
 export const aiIntro =
-  "Since 2020, AI has been a force multiplier in my work — not a gimmick. The real skill is using it reliably: knowing where it speeds things up, where it adds risk, and how to keep a human firmly in control of anything that matters.";
+  "Since 2023, AI has been a force multiplier in my work — not a gimmick. The real skill is using it reliably: knowing where it speeds things up, where it adds risk, and how to keep a human firmly in control of anything that matters.";
 
 export interface AiUse {
   title: string;
