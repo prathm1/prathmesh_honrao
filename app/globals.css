@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --brand: #0f766e;
-    --brand-light: #14b8a6;
-    --bg: #f8f4ec;
-    --bg-dark: #eae6de;
-    --ink: #122620;
-    --ink-light: #2d4a43;
-    --ink-muted: #56746e;
+    --brand: #2dd4bf;
+    --brand-light: #5eead4;
+    --bg: #243b57;
+    --bg-dark: #1b2e45;
+    --ink: #eef3f9;
+    --ink-light: #c6d4e2;
+    --ink-muted: #90a3b9;
   }
 
   html {
@@ -19,12 +19,21 @@
   }
 
   body {
-    @apply bg-bg text-ink font-sans antialiased;
+    @apply text-ink font-sans antialiased;
+    /* Matte navy, flat finish with a faint teal glow up top for depth */
+    background-color: #243b57;
+    background-image: radial-gradient(
+      1100px 620px at 50% -12%,
+      rgba(94, 234, 212, 0.07),
+      transparent 60%
+    );
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background-color: #0f766e33;
-    color: #122620;
+    background-color: #2dd4bf33;
+    color: #ffffff;
   }
 
   h1, h2, h3, h4 {
@@ -49,30 +58,39 @@
     @apply text-ink-muted text-lg max-w-2xl;
   }
 
+  /* Apple-style frosted matte glass */
   .card {
-    @apply bg-bg-card border border-bg-dark rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300;
+    @apply rounded-2xl p-6 transition-all duration-300;
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  }
+  .card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(94, 234, 212, 0.25);
+  }
+
+  /* Reusable glass surface for inline panels (nav, stat tiles, etc.) */
+  .glass {
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .tag {
     @apply inline-block text-xs font-semibold px-2.5 py-1 rounded-full;
   }
 
-  .tag-insurance {
-    @apply bg-teal-50 text-teal-700;
-  }
-
-  .tag-automotive {
-    @apply bg-blue-50 text-blue-700;
-  }
-
-  .tag-banking {
-    @apply bg-orange-50 text-orange-700;
-  }
-
-  .tag-strategy { @apply bg-purple-50 text-purple-700; }
-  .tag-migration { @apply bg-teal-50 text-teal-700; }
-  .tag-poc { @apply bg-indigo-50 text-indigo-700; }
-  .tag-support { @apply bg-amber-50 text-amber-700; }
+  .tag-insurance { @apply bg-teal-400/15 text-teal-200; }
+  .tag-automotive { @apply bg-blue-400/15 text-blue-200; }
+  .tag-banking { @apply bg-orange-400/15 text-orange-200; }
+  .tag-strategy { @apply bg-purple-400/15 text-purple-200; }
+  .tag-migration { @apply bg-teal-400/15 text-teal-200; }
+  .tag-poc { @apply bg-indigo-400/15 text-indigo-200; }
+  .tag-support { @apply bg-amber-400/15 text-amber-200; }
 }
 
 /* Timeline styles */
@@ -91,9 +109,9 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: #1b2e45;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-light);
+  background: #2dd4bf80;
   border-radius: 999px;
 }

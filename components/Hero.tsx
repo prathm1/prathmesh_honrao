@@ -14,11 +14,11 @@ export default function Hero() {
     >
       {/* Background grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(var(--brand) 1px, transparent 1px),
-            linear-gradient(90deg, var(--brand) 1px, transparent 1px)
+            linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
           `,
           backgroundSize: "40px 40px",
         }}
@@ -58,14 +58,14 @@ export default function Hero() {
               {profile.description}
             </motion.p>
 
-            {/* Philosophy pills */}
+            {/* Quick proof points */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col gap-2 mb-10"
             >
-              {profile.philosophy.map((p, i) => (
+              {profile.quickPoints.map((p, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
                   <p className="text-sm text-ink-light leading-snug">{p}</p>
@@ -82,7 +82,7 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 bg-brand text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:bg-brand-dark transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 bg-brand text-bg px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-brand-light transition-colors shadow-lg shadow-brand/20"
               >
                 View Projects
               </a>
@@ -106,12 +106,12 @@ export default function Hero() {
             className="flex justify-center md:justify-end"
           >
             <div className="relative">
-              {/* Teal ring */}
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-brand to-brand-light opacity-30 blur-sm" />
+              {/* Teal glow */}
+              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand to-brand-light opacity-25 blur-md" />
               <img
                 src={asset(profile.photo)}
-                alt="Prathmesh Honrao"
-                className="relative w-52 h-52 md:w-64 md:h-64 object-cover rounded-2xl shadow-xl"
+                alt="Prathmesh Honrao presenting"
+                className="relative w-60 md:w-72 aspect-[4/5] object-cover object-center rounded-2xl shadow-2xl ring-1 ring-white/15"
               />
             </div>
           </motion.div>
@@ -127,7 +127,7 @@ export default function Hero() {
           {profile.stats.map((stat, i) => (
             <div
               key={i}
-              className="bg-bg-card border border-bg-dark rounded-xl px-5 py-4 text-center"
+              className="glass rounded-xl px-5 py-4 text-center"
             >
               <p className="font-serif text-2xl font-bold text-brand">{stat.value}</p>
               <p className="text-xs text-ink-muted mt-0.5 font-medium">{stat.label}</p>

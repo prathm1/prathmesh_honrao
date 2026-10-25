@@ -9,25 +9,26 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#0f766e",
-          light: "#14b8a6",
-          dark: "#0d5f58",
-          50: "#f0fdfa",
-          100: "#ccfbf1",
+          DEFAULT: "#2dd4bf",
+          light: "#5eead4",
+          dark: "#14b8a6",
+          50: "rgba(45,212,191,0.08)",
+          100: "rgba(45,212,191,0.16)",
         },
+        // Deep matte-navy palette sampled from the presentation-room wall (#263d58)
         bg: {
-          DEFAULT: "#f8f4ec",
-          dark: "#eae6de",
-          card: "#fffdf8",
+          DEFAULT: "#243b57",
+          dark: "#1b2e45",
+          card: "rgba(255,255,255,0.06)",
         },
         ink: {
-          DEFAULT: "#122620",
-          light: "#2d4a43",
-          muted: "#56746e",
+          DEFAULT: "#eef3f9",
+          light: "#c6d4e2",
+          muted: "#90a3b9",
         },
-        insurance: "#2b7a78",
-        automotive: "#3f88c5",
-        banking: "#d07c3a",
+        insurance: "#5ec9c6",
+        automotive: "#6aa9e0",
+        banking: "#e9a86a",
       },
       fontFamily: {
         sans: ["var(--font-ibm-plex-sans)", "system-ui", "sans-serif"],

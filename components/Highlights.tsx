@@ -43,7 +43,7 @@ export default function Highlights() {
         <Link
           key={label}
           href={href}
-          className="group flex items-start gap-3 bg-bg-card border border-bg-dark rounded-xl px-4 py-3.5 hover:border-brand transition-colors"
+          className="group flex items-start gap-3 glass rounded-xl px-4 py-3.5 hover:border-brand/40 transition-colors"
         >
           <span className="w-8 h-8 rounded-lg bg-brand-100 text-brand flex items-center justify-center flex-shrink-0">
             <Icon size={15} />

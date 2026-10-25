@@ -12,7 +12,7 @@ export default function Writing({ drafts }: Props) {
   const latest = posts.slice(0, 3);
 
   return (
-    <section id="writing" className="bg-bg-dark/30">
+    <section id="writing">
       <div className="section-container">
         <AnimateOnScroll>
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
@@ -71,7 +71,7 @@ export default function Writing({ drafts }: Props) {
                 </div>
                 <h3 className="font-serif text-lg text-ink leading-snug mb-2">{draft.title}</h3>
                 <div
-                  className="text-sm text-ink-light leading-relaxed flex-1 prose prose-sm max-w-none line-clamp-4"
+                  className="text-sm text-ink-light leading-relaxed flex-1 prose prose-invert prose-sm max-w-none line-clamp-4"
                   dangerouslySetInnerHTML={{ __html: draft.content }}
                 />
               </div>

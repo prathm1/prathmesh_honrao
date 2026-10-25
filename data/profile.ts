@@ -1,28 +1,26 @@
 export const profile = {
   name: "Prathmesh Honrao",
-  title: "I speak both tech and business — and translate between them.",
-  subtitle: "Engineering · AI · Data",
+  // Plain-language positioning — no jargon.
+  title: "I work on modernizing the mainframe systems that run large enterprises.",
+  subtitle: "Senior Consultant · Mainframe Modernization · Deloitte Germany",
   description:
-    "I work at the intersection of code and strategy, legacy and modern systems, and business and engineering teams. I currently lead modernization initiatives at Deloitte Germany.",
+    "Ten years in enterprise IT — from writing the code, to running the migrations, to shaping the strategy. I bring the technical depth of an engineer and the business sense of an MBA, and I use both to move big, complex projects forward.",
+  // Three quick, scannable proof points for the hero.
+  quickPoints: [
+    "Engineer + MBA — I speak tech and business",
+    "Strategy, delivery, and operations — I've done all three",
+    "Using AI since 2020 to do more, with less risk",
+  ],
   currentRole: "Senior Consultant",
   currentCompany: "Deloitte Germany",
   yearsExperience: "~10",
-  photo: "/assets/me.jpg",
+  photo: "/assets/presenting.jpeg",
   linkedin: "https://www.linkedin.com/in/honraoprathmesh/",
   github: "https://github.com/prathm1",
-  philosophy: [
-    "The most dangerous assumption in enterprise technology is that old means obsolete.",
-    "Every transformation is a people and process problem first, a technology problem second.",
-    "The best technical solution is the one the business can actually sustain.",
-  ],
-  workPhilosophy: [
-    "Most enterprise projects drown in noise — status updates, meetings, competing priorities, undocumented assumptions. My job is to cut through that and focus on what actually moves the needle.",
-    "I act as a bridge between technical teams and business stakeholders — translating complexity into decisions, and strategy into working systems.",
-  ],
   stats: [
-    { value: "10+", label: "Years of Experience" },
+    { value: "10+", label: "Years in enterprise IT" },
     { value: "3", label: "Industries" },
-    { value: "9+", label: "Major Engagements" },
-    { value: "2500+ GB", label: "Production Data Migrated" },
+    { value: "9+", label: "Major engagements" },
+    { value: "2500+ GB", label: "Production data migrated" },
   ],
 };

@@ -26,7 +26,7 @@ export default function Contact() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-bg-card border border-bg-dark rounded-xl px-5 py-3 hover:border-brand hover:shadow-sm transition-all duration-200"
+                className="group inline-flex items-center gap-3 glass rounded-xl px-5 py-3 hover:border-brand/40 transition-all duration-200"
               >
                 <Linkedin size={18} className="text-brand" />
                 <div>
@@ -41,7 +41,7 @@ export default function Contact() {
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-bg-card border border-bg-dark rounded-xl px-5 py-3 hover:border-brand hover:shadow-sm transition-all duration-200"
+                className="group inline-flex items-center gap-3 glass rounded-xl px-5 py-3 hover:border-brand/40 transition-all duration-200"
               >
                 <Github size={18} className="text-ink" />
                 <div>
@@ -52,7 +52,7 @@ export default function Contact() {
 
               <a
                 href="mailto:honraoprathmesh@gmail.com"
-                className="group inline-flex items-center gap-3 bg-bg-card border border-bg-dark rounded-xl px-5 py-3 hover:border-brand hover:shadow-sm transition-all duration-200"
+                className="group inline-flex items-center gap-3 glass rounded-xl px-5 py-3 hover:border-brand/40 transition-all duration-200"
               >
                 <Mail size={18} className="text-brand" />
                 <div>
@@ -67,13 +67,16 @@ export default function Contact() {
           <AnimateOnScroll delay={0.2}>
             <div className="card border-l-4 border-l-brand h-full flex flex-col justify-center gap-5">
               <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider">
-                Working Philosophy
+                How I Work
               </p>
-              {profile.workPhilosophy.map((p, i) => (
-                <p key={i} className="text-ink-light leading-relaxed text-sm italic">
-                  &ldquo;{p}&rdquo;
-                </p>
-              ))}
+              <p className="text-ink-light leading-relaxed text-sm italic">
+                &ldquo;Most big projects drown in noise. My job is to cut through
+                it and focus on what actually moves the needle.&rdquo;
+              </p>
+              <p className="text-ink-light leading-relaxed text-sm italic">
+                &ldquo;I translate complexity into decisions, and strategy into
+                working systems — the bridge between business and engineering.&rdquo;
+              </p>
             </div>
           </AnimateOnScroll>
         </div>

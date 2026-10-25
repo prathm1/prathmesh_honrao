@@ -81,7 +81,7 @@ export default function Currently({ drafts }: Props) {
                 <div className="card">
                   <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider mb-2">{draft.title}</p>
                   <div
-                    className="text-sm text-ink-light leading-relaxed prose prose-sm max-w-none"
+                    className="text-sm text-ink-light leading-relaxed prose prose-invert prose-sm max-w-none"
                     dangerouslySetInnerHTML={{ __html: draft.content }}
                   />
                 </div>

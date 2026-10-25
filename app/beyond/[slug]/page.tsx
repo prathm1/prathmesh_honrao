@@ -69,7 +69,7 @@ export default async function BeyondPage({
         </header>
 
         {/* Content */}
-        <div className="prose prose-sm max-w-none">
+        <div className="prose prose-invert prose-sm max-w-none">
           <p className="text-ink-light leading-relaxed text-base">
             {hobby.longDescription}
           </p>

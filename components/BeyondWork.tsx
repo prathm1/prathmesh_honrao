@@ -2,14 +2,27 @@
 
 import Link from "next/link";
 import { hobbies } from "@/data/hobbies";
+import { personalHighlights, photoStrip } from "@/data/personal";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { asset } from "@/lib/basePath";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Plane,
+  Library,
+  type LucideIcon,
+} from "lucide-react";
 import type { PublishedDraft } from "@/lib/content";
 
 interface Props {
   drafts: PublishedDraft[];
 }
+
+const highlightIcons: Record<string, LucideIcon> = {
+  BookOpen,
+  Plane,
+  Library,
+};
 
 export default function BeyondWork({ drafts }: Props) {
   return (
@@ -17,12 +30,47 @@ export default function BeyondWork({ drafts }: Props) {
       <div className="section-container">
         <AnimateOnScroll>
           <p className="section-label">Personal</p>
-          <h2 className="section-title">Beyond Work</h2>
+          <h2 className="section-title">Beyond work</h2>
           <p className="section-subtitle mb-12">
-            The things that make the work more interesting — and the person more three-dimensional.
+            The things that make the work more interesting — and the person more
+            three-dimensional.
           </p>
         </AnimateOnScroll>
 
+        {/* Life highlights: book teaser, travel, reading */}
+        <div className="grid sm:grid-cols-3 gap-5 mb-10">
+          {personalHighlights.map((h, i) => {
+            const Icon = highlightIcons[h.icon] ?? BookOpen;
+            return (
+              <AnimateOnScroll key={h.title} delay={i * 0.08}>
+                <div
+                  className={`card h-full ${
+                    h.teaser ? "border-l-4 border-l-brand bg-brand/[0.03]" : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-9 h-9 rounded-xl bg-brand-100 text-brand flex items-center justify-center">
+                      <Icon size={17} />
+                    </span>
+                    {h.teaser && (
+                      <span className="tag bg-brand-100 text-brand text-[10px]">
+                        Coming soon
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-serif text-base font-semibold text-ink mb-1.5">
+                    {h.title}
+                  </h3>
+                  <p className="text-sm text-ink-light leading-relaxed">
+                    {h.description}
+                  </p>
+                </div>
+              </AnimateOnScroll>
+            );
+          })}
+        </div>
+
+        {/* Hobby builds */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {hobbies.map((hobby, i) => (
             <AnimateOnScroll key={hobby.slug} delay={i * 0.08}>
@@ -79,6 +127,29 @@ export default function BeyondWork({ drafts }: Props) {
           ))}
         </div>
 
+        {/* Subtle, professional photo strip */}
+        <AnimateOnScroll delay={0.1}>
+          <div className="mt-12">
+            <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider mb-4">
+              A few moments
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {photoStrip.map((photo) => (
+                <figure key={photo.src} className="group relative overflow-hidden rounded-xl">
+                  <img
+                    src={asset(photo.src)}
+                    alt={photo.caption}
+                    className="w-full h-32 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent text-white text-[10px] leading-tight p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         {drafts.length > 0 && (
           <div className="mt-10 flex flex-col gap-4">
             {drafts.map((draft, i) => (
@@ -86,7 +157,7 @@ export default function BeyondWork({ drafts }: Props) {
                 <div className="card">
                   <p className="font-serif text-base font-semibold text-ink mb-2">{draft.title}</p>
                   <div
-                    className="text-sm text-ink-light leading-relaxed prose prose-sm max-w-none"
+                    className="text-sm text-ink-light leading-relaxed prose prose-invert prose-sm max-w-none"
                     dangerouslySetInnerHTML={{ __html: draft.content }}
                   />
                 </div>

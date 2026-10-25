@@ -6,10 +6,10 @@ import { PenSquare } from "lucide-react";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#now", label: "Now" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#writing", label: "Writing" },
+  { href: "#journey", label: "Journey" },
+  { href: "#ai", label: "AI" },
+  { href: "#projects", label: "Work" },
+  { href: "#speaking", label: "Speaking" },
   { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
 ];
@@ -23,7 +23,7 @@ export default function Nav() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ["about", "now", "experience", "projects", "writing", "beyond", "contact"];
+      const sections = ["about", "journey", "ai", "projects", "speaking", "beyond", "contact"];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -52,7 +52,7 @@ export default function Nav() {
           className="flex items-center gap-2 group"
           aria-label="Prathmesh Honrao — Home"
         >
-          <span className="w-8 h-8 rounded-lg bg-brand text-white text-sm font-bold font-mono flex items-center justify-center group-hover:bg-brand-dark transition-colors">
+          <span className="w-8 h-8 rounded-lg bg-brand text-bg text-sm font-bold font-mono flex items-center justify-center group-hover:bg-brand-light transition-colors">
             PH
           </span>
           <span className="font-serif text-ink text-sm hidden sm:block font-semibold">
